@@ -26,7 +26,6 @@ class FeedCell: UICollectionViewCell {
 
 extension FeedCell {
   func configure() {
-    translatesAutoresizingMaskIntoConstraints = false
     contentView.addSubview(label)
     label.snp.makeConstraints { make in
       make.left.equalToSuperview().inset(10)
@@ -34,7 +33,7 @@ extension FeedCell {
     }
 
     label.adjustsFontForContentSizeCategory = true
-    label.font = UIFont.preferredFont(forTextStyle: .title1)
+    label.font = UIFont.preferredFont(forTextStyle: .title2)
     label.textColor = .label
     layer.borderWidth = 1
     layer.borderColor = UIColor.systemGray2.cgColor

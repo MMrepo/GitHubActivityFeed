@@ -10,6 +10,8 @@ import Combine
 
 enum FeedsProviderError: Error {
   case undefined
+  case decodingFailed(Error)
+  case requestFailed(Error)
 }
 
 protocol FeedsProviderFactory {

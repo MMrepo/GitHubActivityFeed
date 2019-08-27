@@ -30,6 +30,14 @@
 		C242EAA623153DAA00E17B27 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EAA523153DAA00E17B27 /* Feed.swift */; };
 		C242EAA92315427100E17B27 /* MockedFeedsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EAA82315427100E17B27 /* MockedFeedsProvider.swift */; };
 		C242EAAB2315427F00E17B27 /* FeedsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EAAA2315427F00E17B27 /* FeedsProvider.swift */; };
+		C242EAAD2315492C00E17B27 /* FeedsListLoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EAAC2315492C00E17B27 /* FeedsListLoadingState.swift */; };
+		C242EAB023155BCB00E17B27 /* Publishers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EAAF23155BCB00E17B27 /* Publishers+Extensions.swift */; };
+		C242EAB223155E5800E17B27 /* FeedsListLoadedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EAB123155E5800E17B27 /* FeedsListLoadedState.swift */; };
+		C242EAB423155EC100E17B27 /* FeedsListFailedToLoadState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EAB323155EC100E17B27 /* FeedsListFailedToLoadState.swift */; };
+		C242EAB62315671100E17B27 /* GithubFeedsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EAB52315671100E17B27 /* GithubFeedsProvider.swift */; };
+		C242EAB82315678E00E17B27 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EAB72315678E00E17B27 /* Identifier.swift */; };
+		C242EABB23156B0500E17B27 /* Codextended in Frameworks */ = {isa = PBXBuildFile; productRef = C242EABA23156B0500E17B27 /* Codextended */; };
+		C242EABE2315701E00E17B27 /* MockedEvents.json in Resources */ = {isa = PBXBuildFile; fileRef = C242EABD2315701E00E17B27 /* MockedEvents.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +86,13 @@
 		C242EAA523153DAA00E17B27 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		C242EAA82315427100E17B27 /* MockedFeedsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedFeedsProvider.swift; sourceTree = "<group>"; };
 		C242EAAA2315427F00E17B27 /* FeedsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsProvider.swift; sourceTree = "<group>"; };
+		C242EAAC2315492C00E17B27 /* FeedsListLoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsListLoadingState.swift; sourceTree = "<group>"; };
+		C242EAAF23155BCB00E17B27 /* Publishers+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+Extensions.swift"; sourceTree = "<group>"; };
+		C242EAB123155E5800E17B27 /* FeedsListLoadedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsListLoadedState.swift; sourceTree = "<group>"; };
+		C242EAB323155EC100E17B27 /* FeedsListFailedToLoadState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsListFailedToLoadState.swift; sourceTree = "<group>"; };
+		C242EAB52315671100E17B27 /* GithubFeedsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubFeedsProvider.swift; sourceTree = "<group>"; };
+		C242EAB72315678E00E17B27 /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
+		C242EABD2315701E00E17B27 /* MockedEvents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockedEvents.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +102,7 @@
 			files = (
 				C242EA912315346300E17B27 /* SnapKit in Frameworks */,
 				C242EA722315314900E17B27 /* Routable in Frameworks */,
+				C242EABB23156B0500E17B27 /* Codextended in Frameworks */,
 				C242EA702315314600E17B27 /* Architecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,6 +127,7 @@
 		C242EA3023152FF300E17B27 = {
 			isa = PBXGroup;
 			children = (
+				C242EABC23156FF000E17B27 /* Resources */,
 				C242EA6C2315304200E17B27 /* Architecture */,
 				C242EA6D2315304200E17B27 /* Routable */,
 				C242EA3B23152FF400E17B27 /* GitHubActivityFeed */,
@@ -134,6 +151,7 @@
 		C242EA3B23152FF400E17B27 /* GitHubActivityFeed */ = {
 			isa = PBXGroup;
 			children = (
+				C242EAAE23155BAC00E17B27 /* Utils */,
 				C242EA7D231533FF00E17B27 /* Modules */,
 				C242EA73231531B300E17B27 /* Application */,
 				C242EA3C23152FF400E17B27 /* AppDelegate.swift */,
@@ -205,6 +223,9 @@
 			children = (
 				C242EA832315341E00E17B27 /* FeedsListStateMachine.swift */,
 				C242EAA323153CB800E17B27 /* FeedsListInitialState.swift */,
+				C242EAAC2315492C00E17B27 /* FeedsListLoadingState.swift */,
+				C242EAB123155E5800E17B27 /* FeedsListLoadedState.swift */,
+				C242EAB323155EC100E17B27 /* FeedsListFailedToLoadState.swift */,
 			);
 			path = StateMachine;
 			sourceTree = "<group>";
@@ -234,8 +255,26 @@
 			children = (
 				C242EAA82315427100E17B27 /* MockedFeedsProvider.swift */,
 				C242EAAA2315427F00E17B27 /* FeedsProvider.swift */,
+				C242EAB52315671100E17B27 /* GithubFeedsProvider.swift */,
 			);
 			path = FeedsProvider;
+			sourceTree = "<group>";
+		};
+		C242EAAE23155BAC00E17B27 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C242EAAF23155BCB00E17B27 /* Publishers+Extensions.swift */,
+				C242EAB72315678E00E17B27 /* Identifier.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C242EABC23156FF000E17B27 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C242EABD2315701E00E17B27 /* MockedEvents.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +299,7 @@
 				C242EA6F2315314600E17B27 /* Architecture */,
 				C242EA712315314900E17B27 /* Routable */,
 				C242EA902315346300E17B27 /* SnapKit */,
+				C242EABA23156B0500E17B27 /* Codextended */,
 			);
 			productName = GitHubActivityFeed;
 			productReference = C242EA3923152FF400E17B27 /* GitHubActivityFeed.app */;
@@ -335,6 +375,7 @@
 			mainGroup = C242EA3023152FF300E17B27;
 			packageReferences = (
 				C242EA8F2315346300E17B27 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				C242EAB923156B0500E17B27 /* XCRemoteSwiftPackageReference "Codextended" */,
 			);
 			productRefGroup = C242EA3A23152FF400E17B27 /* Products */;
 			projectDirPath = "";
@@ -352,6 +393,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C242EABE2315701E00E17B27 /* MockedEvents.json in Resources */,
 				C242EA4923152FF600E17B27 /* LaunchScreen.storyboard in Resources */,
 				C242EA4623152FF600E17B27 /* Assets.xcassets in Resources */,
 			);
@@ -419,13 +461,19 @@
 			files = (
 				C242EA75231531C600E17B27 /* Application.swift in Sources */,
 				C242EAA623153DAA00E17B27 /* Feed.swift in Sources */,
+				C242EAAD2315492C00E17B27 /* FeedsListLoadingState.swift in Sources */,
 				C242EAA223153B6600E17B27 /* FeedCell.swift in Sources */,
+				C242EAB82315678E00E17B27 /* Identifier.swift in Sources */,
 				C242EAA423153CB800E17B27 /* FeedsListInitialState.swift in Sources */,
 				C242EA98231535B900E17B27 /* FeedsRouter.swift in Sources */,
 				C242EAAB2315427F00E17B27 /* FeedsProvider.swift in Sources */,
+				C242EAB223155E5800E17B27 /* FeedsListLoadedState.swift in Sources */,
 				C242EA77231531D100E17B27 /* DependencyContainer.swift in Sources */,
+				C242EAB023155BCB00E17B27 /* Publishers+Extensions.swift in Sources */,
 				C242EA8B2315341E00E17B27 /* FeedsListStylizer.swift in Sources */,
 				C242EA8C2315341E00E17B27 /* FeedsListPositioner.swift in Sources */,
+				C242EAB62315671100E17B27 /* GithubFeedsProvider.swift in Sources */,
+				C242EAB423155EC100E17B27 /* FeedsListFailedToLoadState.swift in Sources */,
 				C242EA3D23152FF400E17B27 /* AppDelegate.swift in Sources */,
 				C242EAA92315427100E17B27 /* MockedFeedsProvider.swift in Sources */,
 				C242EA8E2315341E00E17B27 /* FeedsListScreenBuilder.swift in Sources */,
@@ -761,6 +809,14 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		C242EAB923156B0500E17B27 /* XCRemoteSwiftPackageReference "Codextended" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JohnSundell/Codextended";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -776,6 +832,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C242EA8F2315346300E17B27 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		C242EABA23156B0500E17B27 /* Codextended */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C242EAB923156B0500E17B27 /* XCRemoteSwiftPackageReference "Codextended" */;
+			productName = Codextended;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

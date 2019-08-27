@@ -9,13 +9,14 @@
 import UIKit
 
 class FeedsListMainView: UIView {
-  let feedsCollectionView: UICollectionView
+  let feedsCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: FeedsListMainView.createLayout())
+  let refreshControl = UIRefreshControl()
 
   init() {
-    self.feedsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: FeedsListMainView.createLayout())
     super.init(frame: .zero)
 
     addSubview(feedsCollectionView)
+    feedsCollectionView.refreshControl = refreshControl
   }
 
   required init?(coder: NSCoder) {

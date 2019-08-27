@@ -10,16 +10,9 @@ import GameplayKit
 import UIKit
 
 class FeedsListInitialState: GKState {
-  private let dataSource: UICollectionViewDiffableDataSource<FeedsListMainView.FeedListSection, Feed>
-
   override func didEnter(from previousState: GKState?) {}
 
-  init(dataSource: UICollectionViewDiffableDataSource<FeedsListMainView.FeedListSection, Feed>) {
-    self.dataSource = dataSource
+  override init() {
     super.init()
-  }
-
-  func apply(snapshot: NSDiffableDataSourceSnapshot<FeedsListMainView.FeedListSection, Feed>) {
-    dataSource.apply(snapshot)
   }
 }

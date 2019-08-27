@@ -38,6 +38,6 @@ extension DependencyContainer: FeedsListViewControllerFactory {
 
 extension DependencyContainer: FeedsProviderFactory {
   func makeFeedsProvider() -> FeedsProvider {
-    return MockedFeedsProvider()
+    return GithubFeedsProvider()
   }
 }

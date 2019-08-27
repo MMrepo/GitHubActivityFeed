@@ -236,6 +236,8 @@
 				C242EA3523152FF400E17B27 /* Sources */,
 				C242EA3623152FF400E17B27 /* Frameworks */,
 				C242EA3723152FF400E17B27 /* Resources */,
+				C242EA9E23153A9100E17B27 /* SwiftLint */,
+				C242EA9F23153A9400E17B27 /* SwiftFormat */,
 			);
 			buildRules = (
 			);
@@ -358,6 +360,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C242EA9E23153A9100E17B27 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n swiftlint\nelse\n  echo \"warning: SwiftLint not installed - run 'brew install swiftlint'\"\nfi\n";
+		};
+		C242EA9F23153A9400E17B27 /* SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftformat >/dev/null; then\nswiftformat .\nelse\necho \"warning: SwiftFormat not installed - run 'brew install swiftformat'\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C242EA3523152FF400E17B27 /* Sources */ = {

@@ -1,4 +1,4 @@
-//  
+//
 //  FeedsListMainView.swift
 //  GitHubActivityFeed
 //
@@ -10,14 +10,14 @@ import UIKit
 
 class FeedsListMainView: UIView {
   let feedsCollectionView: UICollectionView
-  
+
   init() {
-    feedsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: FeedsListMainView.createLayout())
+    self.feedsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: FeedsListMainView.createLayout())
     super.init(frame: .zero)
-    
+
     addSubview(feedsCollectionView)
   }
-  
+
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }

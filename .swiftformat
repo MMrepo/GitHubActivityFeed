@@ -1,0 +1,67 @@
+#files:
+
+--exclude *Tests,*Test
+
+#rules:
+
+--disable unusedArguments
+--enable andOperator
+--enable anyObjectProtocol
+--disable blankLinesAroundMark
+--enable blankLinesAtEndOfScope
+--enable blankLinesAtStartOfScope
+--enable blankLinesBetweenScopes 
+--allman false
+--enable consecutiveSpaces
+--enable consecutiveBlankLines
+--enable duplicateImports
+--elseposition same-line
+--enable emptyBraces
+--header ignore
+--enable isEmpty
+--enable leadingDelimiters
+--enable linebreakAtEndOfFile
+--enable redundantBackticks
+--ranges no-space
+--linebreaks lf
+--hexliteralcase uppercase
+--enable redundantBreak
+--enable redundantExtensionACL
+--enable redundantFileprivate
+--enable redundantGet
+--enable redundantInit
+--enable redundantLet
+--enable redundantLetError
+--enable redundantNilInit
+--enable redundantObjc
+--enable redundantParens
+--enable redundantPattern
+--disable redundantRawValues
+--enable redundantReturn
+--self init-only
+--enable redundantVoidReturnType
+--enable spaceAroundBraces
+--enable spaceAroundBrackets
+--enable spaceAroundGenerics
+--enable spaceAroundParens
+--enable spaceInsideBraces
+--enable spaceInsideBrackets
+--enable spaceInsideGenerics
+--enable spaceInsideParens
+--enable specifiers
+--enable strongOutlets
+--enable strongifiedSelf
+--enable todos
+--disable trailingClosures
+--disable trailingCommas
+--enable trailingSpace
+--enable typeSugar
+--empty void
+--wraparguments after-first
+--wrapcollections after-first
+--closingparen same-line
+--enable yodaConditions
+--indent 2
+--indentcase false
+--patternlet inline
+--decimalgrouping none

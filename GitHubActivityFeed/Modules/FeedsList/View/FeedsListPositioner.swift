@@ -1,4 +1,4 @@
-//  
+//
 //  FeedsListPositioner.swift
 //  GitHubActivityFeed
 //
@@ -6,14 +6,13 @@
 //  Copyright © 2019 Mateusz Małek. All rights reserved.
 //
 
+import Architecture
 import SnapKit
 import UIKit
-import Architecture
 
 struct FeedsListPositioner {
-  
   private(set) weak var mainView: FeedsListMainView!
-  
+
   init(mainView: FeedsListMainView) {
     self.mainView = mainView
   }

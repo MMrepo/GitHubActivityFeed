@@ -1,4 +1,4 @@
-//  
+//
 //  FeedsListScreenBuilder.swift
 //  GitHubActivityFeed
 //

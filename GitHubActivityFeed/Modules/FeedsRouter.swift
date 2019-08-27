@@ -17,18 +17,18 @@ final class FeedsRouter: Router, Pathable {
   typealias Factory = FeedsListViewControllerFactory
   private weak var factory: Factory!
   private weak var navController: UINavigationController!
-  
+
   init(factory: Factory) {
     self.factory = factory
     let navController = UINavigationController()
     self.navController = navController
-    
+
     super.init(nibName: nil, bundle: nil)
     add(childController: navController)
-    
+
     registerPaths()
   }
-  
+
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }

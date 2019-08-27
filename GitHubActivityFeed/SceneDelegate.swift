@@ -17,14 +17,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
              options connectionOptions: UIScene.ConnectionOptions) {
     guard let windowScene = (scene as? UIWindowScene) else { return }
     let window = UIWindow(windowScene: windowScene)
-    
+
     dependecyContainer = DependencyContainer()
     let app = dependecyContainer.makeApplication()
     window.rootViewController = app
 
     self.window = window
-    
-    try! app.go(to: FeedsRouter.path).go(to: FeedsListViewController.path)
+
+    try? app.go(to: FeedsRouter.path).go(to: FeedsListViewController.path)
     window.makeKeyAndVisible()
   }
 }

@@ -1,4 +1,4 @@
-//  
+//
 //  FeedsListStylizer.swift
 //  GitHubActivityFeed
 //
@@ -10,9 +10,8 @@ import Architecture
 import UIKit
 
 struct FeedsListStylizer {
-  
   private(set) weak var mainView: FeedsListMainView!
-  
+
   init(mainView: FeedsListMainView) {
     self.mainView = mainView
   }

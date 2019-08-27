@@ -1,4 +1,4 @@
-//  
+//
 //  FeedsListStateMachine.swift
 //  GitHubActivityFeed
 //
@@ -10,7 +10,7 @@ import GameplayKit
 
 class FeedsListStateMachine: GKStateMachine {
   weak var vc: FeedsListViewController!
-  
+
   init(vc: FeedsListViewController,
        states: [GKState]) {
     self.vc = vc
@@ -18,7 +18,7 @@ class FeedsListStateMachine: GKStateMachine {
   }
 }
 
-fileprivate extension GKState {
+private extension GKState {
   var getFeedsListStateMachine: FeedsListStateMachine? {
     return stateMachine as? FeedsListStateMachine
   }

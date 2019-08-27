@@ -9,12 +9,31 @@
 import UIKit
 
 class FeedsListMainView: UIView {
+  let feedsCollectionView: UICollectionView
   
   init() {
+    feedsCollectionView = UICollectionView(frame: .zero, collectionViewLayout: FeedsListMainView.createLayout())
     super.init(frame: .zero)
+    
+    addSubview(feedsCollectionView)
   }
   
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
+  }
+}
+
+private extension FeedsListMainView {
+  private static func createLayout() -> UICollectionViewLayout {
+    let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                          heightDimension: .fractionalHeight(1.0))
+    let item = NSCollectionLayoutItem(layoutSize: itemSize)
+    let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                           heightDimension: .absolute(44))
+    let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                   subitems: [item])
+    let section = NSCollectionLayoutSection(group: group)
+    let layout = UICollectionViewCompositionalLayout(section: section)
+    return layout
   }
 }

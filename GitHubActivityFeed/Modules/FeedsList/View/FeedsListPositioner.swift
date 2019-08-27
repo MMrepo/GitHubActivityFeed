@@ -21,5 +21,8 @@ struct FeedsListPositioner {
 
 extension FeedsListPositioner: Positioner {
   func setupLayout() {
+    mainView.feedsCollectionView.snp.makeConstraints { make in
+      make.edges.equalToSuperview()
+    }
   }
 }

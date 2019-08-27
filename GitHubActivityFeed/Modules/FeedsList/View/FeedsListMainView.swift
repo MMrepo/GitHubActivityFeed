@@ -23,6 +23,12 @@ class FeedsListMainView: UIView {
   }
 }
 
+extension FeedsListMainView {
+  enum FeedListSection: CaseIterable {
+    case main
+  }
+}
+
 private extension FeedsListMainView {
   private static func createLayout() -> UICollectionViewLayout {
     let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),

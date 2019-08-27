@@ -20,5 +20,6 @@ struct FeedsListStylizer {
 extension FeedsListStylizer: Stylizer {
   func setupStyle() {
     mainView.backgroundColor = .systemBackground
+    mainView.feedsCollectionView.backgroundColor = .clear
   }
 }

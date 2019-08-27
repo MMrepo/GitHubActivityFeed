@@ -35,3 +35,9 @@ extension DependencyContainer: FeedsListViewControllerFactory {
     return FeedsListViewController(factory: self, parameters: parameters)
   }
 }
+
+extension DependencyContainer: FeedsProviderFactory {
+  func makeFeedsProvider() -> FeedsProvider {
+    return MockedFeedsProvider()
+  }
+}

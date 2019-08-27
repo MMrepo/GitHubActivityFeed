@@ -10,6 +10,7 @@ disabled_rules:
   - nesting
   - statement_position
   - colon
+  - closure_parameter_position
 
 warning_threshold: 20
 

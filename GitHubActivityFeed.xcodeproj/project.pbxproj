@@ -3,18 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		C242EA3D23152FF400E17B27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA3C23152FF400E17B27 /* AppDelegate.swift */; };
 		C242EA3F23152FF400E17B27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA3E23152FF400E17B27 /* SceneDelegate.swift */; };
-		C242EA4123152FF400E17B27 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA4023152FF400E17B27 /* ViewController.swift */; };
-		C242EA4423152FF400E17B27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C242EA4223152FF400E17B27 /* Main.storyboard */; };
 		C242EA4623152FF600E17B27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C242EA4523152FF600E17B27 /* Assets.xcassets */; };
 		C242EA4923152FF600E17B27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C242EA4723152FF600E17B27 /* LaunchScreen.storyboard */; };
 		C242EA5423152FF600E17B27 /* GitHubActivityFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA5323152FF600E17B27 /* GitHubActivityFeedTests.swift */; };
 		C242EA5F23152FF600E17B27 /* GitHubActivityFeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA5E23152FF600E17B27 /* GitHubActivityFeedUITests.swift */; };
+		C242EA702315314600E17B27 /* Architecture in Frameworks */ = {isa = PBXBuildFile; productRef = C242EA6F2315314600E17B27 /* Architecture */; };
+		C242EA722315314900E17B27 /* Routable in Frameworks */ = {isa = PBXBuildFile; productRef = C242EA712315314900E17B27 /* Routable */; };
+		C242EA75231531C600E17B27 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA74231531C600E17B27 /* Application.swift */; };
+		C242EA77231531D100E17B27 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA76231531D100E17B27 /* DependencyContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +40,6 @@
 		C242EA3923152FF400E17B27 /* GitHubActivityFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubActivityFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C242EA3C23152FF400E17B27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C242EA3E23152FF400E17B27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C242EA4023152FF400E17B27 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C242EA4323152FF400E17B27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C242EA4523152FF600E17B27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C242EA4823152FF600E17B27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C242EA4A23152FF600E17B27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +51,8 @@
 		C242EA6023152FF600E17B27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C242EA6C2315304200E17B27 /* Architecture */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Architecture; sourceTree = "<group>"; };
 		C242EA6D2315304200E17B27 /* Routable */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Routable; sourceTree = "<group>"; };
+		C242EA74231531C600E17B27 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		C242EA76231531D100E17B27 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C242EA722315314900E17B27 /* Routable in Frameworks */,
+				C242EA702315314600E17B27 /* Architecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +91,7 @@
 				C242EA5223152FF600E17B27 /* GitHubActivityFeedTests */,
 				C242EA5D23152FF600E17B27 /* GitHubActivityFeedUITests */,
 				C242EA3A23152FF400E17B27 /* Products */,
+				C242EA6E2315314600E17B27 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,10 +108,10 @@
 		C242EA3B23152FF400E17B27 /* GitHubActivityFeed */ = {
 			isa = PBXGroup;
 			children = (
+				C242EA78231532D000E17B27 /* Modules */,
+				C242EA73231531B300E17B27 /* Application */,
 				C242EA3C23152FF400E17B27 /* AppDelegate.swift */,
 				C242EA3E23152FF400E17B27 /* SceneDelegate.swift */,
-				C242EA4023152FF400E17B27 /* ViewController.swift */,
-				C242EA4223152FF400E17B27 /* Main.storyboard */,
 				C242EA4523152FF600E17B27 /* Assets.xcassets */,
 				C242EA4723152FF600E17B27 /* LaunchScreen.storyboard */,
 				C242EA4A23152FF600E17B27 /* Info.plist */,
@@ -132,6 +137,29 @@
 			path = GitHubActivityFeedUITests;
 			sourceTree = "<group>";
 		};
+		C242EA6E2315314600E17B27 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C242EA73231531B300E17B27 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				C242EA74231531C600E17B27 /* Application.swift */,
+				C242EA76231531D100E17B27 /* DependencyContainer.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		C242EA78231532D000E17B27 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -148,6 +176,10 @@
 			dependencies = (
 			);
 			name = GitHubActivityFeed;
+			packageProductDependencies = (
+				C242EA6F2315314600E17B27 /* Architecture */,
+				C242EA712315314900E17B27 /* Routable */,
+			);
 			productName = GitHubActivityFeed;
 			productReference = C242EA3923152FF400E17B27 /* GitHubActivityFeed.app */;
 			productType = "com.apple.product-type.application";
@@ -238,7 +270,6 @@
 			files = (
 				C242EA4923152FF600E17B27 /* LaunchScreen.storyboard in Resources */,
 				C242EA4623152FF600E17B27 /* Assets.xcassets in Resources */,
-				C242EA4423152FF400E17B27 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +294,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C242EA4123152FF400E17B27 /* ViewController.swift in Sources */,
+				C242EA75231531C600E17B27 /* Application.swift in Sources */,
+				C242EA77231531D100E17B27 /* DependencyContainer.swift in Sources */,
 				C242EA3D23152FF400E17B27 /* AppDelegate.swift in Sources */,
 				C242EA3F23152FF400E17B27 /* SceneDelegate.swift in Sources */,
 			);
@@ -301,14 +333,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C242EA4223152FF400E17B27 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C242EA4323152FF400E17B27 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C242EA4723152FF600E17B27 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -592,6 +616,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C242EA6F2315314600E17B27 /* Architecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Architecture;
+		};
+		C242EA712315314900E17B27 /* Routable */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Routable;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C242EA3123152FF300E17B27 /* Project object */;
 }

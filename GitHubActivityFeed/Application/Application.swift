@@ -6,7 +6,6 @@
 //  Copyright © 2019 Mateusz Małek. All rights reserved.
 //
 
-import Foundation
 import Routable
 import UIKit
 
@@ -31,5 +30,10 @@ final class Application: Router {
 
 private extension Application {
   func registerPaths() {
+    register(path: FeedsRouter.path) { [unowned self] _, _ in
+      let router = self.factory.makeFeedsRouter()
+      self.add(childController: router)
+      return router
+    }
   }
 }

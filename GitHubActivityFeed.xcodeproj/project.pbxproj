@@ -17,6 +17,14 @@
 		C242EA722315314900E17B27 /* Routable in Frameworks */ = {isa = PBXBuildFile; productRef = C242EA712315314900E17B27 /* Routable */; };
 		C242EA75231531C600E17B27 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA74231531C600E17B27 /* Application.swift */; };
 		C242EA77231531D100E17B27 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA76231531D100E17B27 /* DependencyContainer.swift */; };
+		C242EA892315341E00E17B27 /* FeedsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA812315341E00E17B27 /* FeedsListViewController.swift */; };
+		C242EA8A2315341E00E17B27 /* FeedsListStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA832315341E00E17B27 /* FeedsListStateMachine.swift */; };
+		C242EA8B2315341E00E17B27 /* FeedsListStylizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA852315341E00E17B27 /* FeedsListStylizer.swift */; };
+		C242EA8C2315341E00E17B27 /* FeedsListPositioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA862315341E00E17B27 /* FeedsListPositioner.swift */; };
+		C242EA8D2315341E00E17B27 /* FeedsListMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA872315341E00E17B27 /* FeedsListMainView.swift */; };
+		C242EA8E2315341E00E17B27 /* FeedsListScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA882315341E00E17B27 /* FeedsListScreenBuilder.swift */; };
+		C242EA912315346300E17B27 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C242EA902315346300E17B27 /* SnapKit */; };
+		C242EA98231535B900E17B27 /* FeedsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA97231535B900E17B27 /* FeedsRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +61,13 @@
 		C242EA6D2315304200E17B27 /* Routable */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Routable; sourceTree = "<group>"; };
 		C242EA74231531C600E17B27 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		C242EA76231531D100E17B27 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		C242EA812315341E00E17B27 /* FeedsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsListViewController.swift; sourceTree = "<group>"; };
+		C242EA832315341E00E17B27 /* FeedsListStateMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsListStateMachine.swift; sourceTree = "<group>"; };
+		C242EA852315341E00E17B27 /* FeedsListStylizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsListStylizer.swift; sourceTree = "<group>"; };
+		C242EA862315341E00E17B27 /* FeedsListPositioner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsListPositioner.swift; sourceTree = "<group>"; };
+		C242EA872315341E00E17B27 /* FeedsListMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsListMainView.swift; sourceTree = "<group>"; };
+		C242EA882315341E00E17B27 /* FeedsListScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsListScreenBuilder.swift; sourceTree = "<group>"; };
+		C242EA97231535B900E17B27 /* FeedsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C242EA912315346300E17B27 /* SnapKit in Frameworks */,
 				C242EA722315314900E17B27 /* Routable in Frameworks */,
 				C242EA702315314600E17B27 /* Architecture in Frameworks */,
 			);
@@ -108,7 +124,7 @@
 		C242EA3B23152FF400E17B27 /* GitHubActivityFeed */ = {
 			isa = PBXGroup;
 			children = (
-				C242EA78231532D000E17B27 /* Modules */,
+				C242EA7D231533FF00E17B27 /* Modules */,
 				C242EA73231531B300E17B27 /* Application */,
 				C242EA3C23152FF400E17B27 /* AppDelegate.swift */,
 				C242EA3E23152FF400E17B27 /* SceneDelegate.swift */,
@@ -153,11 +169,42 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		C242EA78231532D000E17B27 /* Modules */ = {
+		C242EA7D231533FF00E17B27 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				C242EA802315341E00E17B27 /* FeedsList */,
+				C242EA97231535B900E17B27 /* FeedsRouter.swift */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		C242EA802315341E00E17B27 /* FeedsList */ = {
+			isa = PBXGroup;
+			children = (
+				C242EA812315341E00E17B27 /* FeedsListViewController.swift */,
+				C242EA822315341E00E17B27 /* StateMachine */,
+				C242EA842315341E00E17B27 /* View */,
+			);
+			path = FeedsList;
+			sourceTree = "<group>";
+		};
+		C242EA822315341E00E17B27 /* StateMachine */ = {
+			isa = PBXGroup;
+			children = (
+				C242EA832315341E00E17B27 /* FeedsListStateMachine.swift */,
+			);
+			path = StateMachine;
+			sourceTree = "<group>";
+		};
+		C242EA842315341E00E17B27 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C242EA852315341E00E17B27 /* FeedsListStylizer.swift */,
+				C242EA862315341E00E17B27 /* FeedsListPositioner.swift */,
+				C242EA872315341E00E17B27 /* FeedsListMainView.swift */,
+				C242EA882315341E00E17B27 /* FeedsListScreenBuilder.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +226,7 @@
 			packageProductDependencies = (
 				C242EA6F2315314600E17B27 /* Architecture */,
 				C242EA712315314900E17B27 /* Routable */,
+				C242EA902315346300E17B27 /* SnapKit */,
 			);
 			productName = GitHubActivityFeed;
 			productReference = C242EA3923152FF400E17B27 /* GitHubActivityFeed.app */;
@@ -252,6 +300,9 @@
 				Base,
 			);
 			mainGroup = C242EA3023152FF300E17B27;
+			packageReferences = (
+				C242EA8F2315346300E17B27 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = C242EA3A23152FF400E17B27 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -295,9 +346,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				C242EA75231531C600E17B27 /* Application.swift in Sources */,
+				C242EA98231535B900E17B27 /* FeedsRouter.swift in Sources */,
 				C242EA77231531D100E17B27 /* DependencyContainer.swift in Sources */,
+				C242EA8B2315341E00E17B27 /* FeedsListStylizer.swift in Sources */,
+				C242EA8C2315341E00E17B27 /* FeedsListPositioner.swift in Sources */,
 				C242EA3D23152FF400E17B27 /* AppDelegate.swift in Sources */,
+				C242EA8E2315341E00E17B27 /* FeedsListScreenBuilder.swift in Sources */,
+				C242EA8A2315341E00E17B27 /* FeedsListStateMachine.swift in Sources */,
 				C242EA3F23152FF400E17B27 /* SceneDelegate.swift in Sources */,
+				C242EA892315341E00E17B27 /* FeedsListViewController.swift in Sources */,
+				C242EA8D2315341E00E17B27 /* FeedsListMainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,6 +675,17 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		C242EA8F2315346300E17B27 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		C242EA6F2315314600E17B27 /* Architecture */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -625,6 +694,11 @@
 		C242EA712315314900E17B27 /* Routable */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Routable;
+		};
+		C242EA902315346300E17B27 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C242EA8F2315346300E17B27 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

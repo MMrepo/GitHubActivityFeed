@@ -17,3 +17,21 @@ extension DependencyContainer: ApplicationFactory {
     return Application(factory: self)
   }
 }
+
+extension DependencyContainer: FeedsRouterFactory {
+  func makeFeedsRouter() -> FeedsRouter {
+    return FeedsRouter(factory: self)
+  }
+}
+
+extension DependencyContainer: FeedsListViewBuilderFactory {
+  func makeFeedsListScreenBuilder() -> FeedsListScreenBuilder {
+    return FeedsListScreenBuilder()
+  }
+}
+
+extension DependencyContainer: FeedsListViewControllerFactory {
+  func makeFeedsListViewController(parameters: Parameters?) -> FeedsListViewController {
+    return FeedsListViewController(factory: self, parameters: parameters)
+  }
+}

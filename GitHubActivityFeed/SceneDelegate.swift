@@ -23,6 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     window.rootViewController = app
 
     self.window = window
+    
+    try! app.go(to: FeedsRouter.path).go(to: FeedsListViewController.path)
     window.makeKeyAndVisible()
   }
 }

@@ -25,6 +25,7 @@
 		C242EA8E2315341E00E17B27 /* FeedsListScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA882315341E00E17B27 /* FeedsListScreenBuilder.swift */; };
 		C242EA912315346300E17B27 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C242EA902315346300E17B27 /* SnapKit */; };
 		C242EA98231535B900E17B27 /* FeedsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA97231535B900E17B27 /* FeedsRouter.swift */; };
+		C242EA9C2315394300E17B27 /* FeedsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA9B2315394300E17B27 /* FeedsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		C242EA872315341E00E17B27 /* FeedsListMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsListMainView.swift; sourceTree = "<group>"; };
 		C242EA882315341E00E17B27 /* FeedsListScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsListScreenBuilder.swift; sourceTree = "<group>"; };
 		C242EA97231535B900E17B27 /* FeedsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsRouter.swift; sourceTree = "<group>"; };
+		C242EA9B2315394300E17B27 /* FeedsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,8 @@
 		C242EA802315341E00E17B27 /* FeedsList */ = {
 			isa = PBXGroup;
 			children = (
+				C242EA9A2315393400E17B27 /* Models */,
+				C242EA992315392A00E17B27 /* FeedsController */,
 				C242EA812315341E00E17B27 /* FeedsListViewController.swift */,
 				C242EA822315341E00E17B27 /* StateMachine */,
 				C242EA842315341E00E17B27 /* View */,
@@ -205,6 +209,21 @@
 				C242EA882315341E00E17B27 /* FeedsListScreenBuilder.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C242EA992315392A00E17B27 /* FeedsController */ = {
+			isa = PBXGroup;
+			children = (
+				C242EA9B2315394300E17B27 /* FeedsController.swift */,
+			);
+			path = FeedsController;
+			sourceTree = "<group>";
+		};
+		C242EA9A2315393400E17B27 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,6 +371,7 @@
 				C242EA8C2315341E00E17B27 /* FeedsListPositioner.swift in Sources */,
 				C242EA3D23152FF400E17B27 /* AppDelegate.swift in Sources */,
 				C242EA8E2315341E00E17B27 /* FeedsListScreenBuilder.swift in Sources */,
+				C242EA9C2315394300E17B27 /* FeedsController.swift in Sources */,
 				C242EA8A2315341E00E17B27 /* FeedsListStateMachine.swift in Sources */,
 				C242EA3F23152FF400E17B27 /* SceneDelegate.swift in Sources */,
 				C242EA892315341E00E17B27 /* FeedsListViewController.swift in Sources */,

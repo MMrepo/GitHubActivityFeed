@@ -49,6 +49,8 @@
 		C242EA5A23152FF600E17B27 /* GitHubActivityFeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHubActivityFeedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C242EA5E23152FF600E17B27 /* GitHubActivityFeedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubActivityFeedUITests.swift; sourceTree = "<group>"; };
 		C242EA6023152FF600E17B27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C242EA6C2315304200E17B27 /* Architecture */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Architecture; sourceTree = "<group>"; };
+		C242EA6D2315304200E17B27 /* Routable */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Routable; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,8 @@
 		C242EA3023152FF300E17B27 = {
 			isa = PBXGroup;
 			children = (
+				C242EA6C2315304200E17B27 /* Architecture */,
+				C242EA6D2315304200E17B27 /* Routable */,
 				C242EA3B23152FF400E17B27 /* GitHubActivityFeed */,
 				C242EA5223152FF600E17B27 /* GitHubActivityFeedTests */,
 				C242EA5D23152FF600E17B27 /* GitHubActivityFeedUITests */,

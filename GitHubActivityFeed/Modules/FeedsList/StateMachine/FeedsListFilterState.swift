@@ -1,5 +1,5 @@
 //
-//  FeedsListLoadedState.swift
+//  FeedsListFilterState.swift
 //  GitHubActivityFeed
 //
 //  Created by Mateusz Małek on 27/08/2019.
@@ -9,17 +9,17 @@
 import GameplayKit
 import UIKit
 
-class FeedsListLoadedState: GKState {
+class FeedsListFilterState: GKState {
   private weak var dataSource: UICollectionViewDiffableDataSource<FeedsListMainView.FeedListSection, Feed>!
-  var lastDownloadedSnapshot: NSDiffableDataSourceSnapshot<FeedsListMainView.FeedListSection, Feed>?
+  var searchSnapshot: NSDiffableDataSourceSnapshot<FeedsListMainView.FeedListSection, Feed>?
 
   override func didEnter(from previousState: GKState?) {
-    guard let snapshot = lastDownloadedSnapshot else { return } // It would be good to add some error handling here
+    guard let snapshot = searchSnapshot else { return } // It would be good to add some error handling here
     dataSource.apply(snapshot, animatingDifferences: true)
   }
 
   override func isValidNextState(_ stateClass: AnyClass) -> Bool {
-    return stateClass == FeedsListLoadingState.self || stateClass == FeedsListFilterState.self
+    return stateClass == FeedsListLoadedState.self || stateClass == FeedsListFilterState.self
   }
 
   init(dataSource: UICollectionViewDiffableDataSource<FeedsListMainView.FeedListSection, Feed>) {

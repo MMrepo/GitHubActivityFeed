@@ -30,4 +30,8 @@ class MockedFeedsProvider: FeedsProvider {
     .delay(for: 2.0, scheduler: DispatchQueue(label: "mockedDownloadingBackgroundQueue"))
     .eraseToAnyPublisher()
   }
+
+  func getFilteredFeedsBy(type: String) -> AnyPublisher<[Feed], FeedsProviderError> {
+    return getFeeds().map { $0.filter { $0.type.contains(type) } }.eraseToAnyPublisher()
+  }
 }

@@ -11,10 +11,12 @@ import UIKit
 class FeedsListMainView: UIView {
   let feedsCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: FeedsListMainView.createLayout())
   let refreshControl = UIRefreshControl()
+  let searchBar = UISearchBar(frame: .zero)
 
   init() {
     super.init(frame: .zero)
 
+    addSubview(searchBar)
     addSubview(feedsCollectionView)
     feedsCollectionView.refreshControl = refreshControl
   }

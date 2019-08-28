@@ -9,7 +9,8 @@
 import UIKit
 
 class FeedCell: UICollectionViewCell {
-  let label = UILabel()
+  let titleLabel = UILabel()
+
   static var reuseIdentifier: String {
     return NSStringFromClass(Self.self)
   }
@@ -26,15 +27,16 @@ class FeedCell: UICollectionViewCell {
 
 extension FeedCell {
   func configure() {
-    contentView.addSubview(label)
-    label.snp.makeConstraints { make in
+    contentView.addSubview(titleLabel)
+    titleLabel.snp.makeConstraints { make in
       make.left.equalToSuperview().inset(10)
       make.centerY.equalToSuperview()
     }
 
-    label.adjustsFontForContentSizeCategory = true
-    label.font = UIFont.preferredFont(forTextStyle: .title2)
-    label.textColor = .label
+    titleLabel.adjustsFontForContentSizeCategory = true
+    titleLabel.font = UIFont.preferredFont(forTextStyle: .title2)
+    titleLabel.textColor = .label
+
     layer.borderWidth = 1
     layer.borderColor = UIColor.systemGray2.cgColor
   }

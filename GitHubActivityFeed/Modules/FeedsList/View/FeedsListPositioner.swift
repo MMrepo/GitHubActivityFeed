@@ -20,8 +20,12 @@ struct FeedsListPositioner {
 
 extension FeedsListPositioner: Positioner {
   func setupLayout() {
+    mainView.searchBar.snp.makeConstraints { make in
+      make.left.top.right.equalTo(mainView.safeAreaLayoutGuide)
+    }
     mainView.feedsCollectionView.snp.makeConstraints { make in
-      make.edges.equalToSuperview()
+      make.top.equalTo(mainView.searchBar.snp.bottom)
+      make.left.bottom.right.equalToSuperview()
     }
   }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C207366923159906002FE570 /* FeedsListFilterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C207366823159906002FE570 /* FeedsListFilterState.swift */; };
 		C242EA3D23152FF400E17B27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA3C23152FF400E17B27 /* AppDelegate.swift */; };
 		C242EA3F23152FF400E17B27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA3E23152FF400E17B27 /* SceneDelegate.swift */; };
 		C242EA4623152FF600E17B27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C242EA4523152FF600E17B27 /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C207366823159906002FE570 /* FeedsListFilterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsListFilterState.swift; sourceTree = "<group>"; };
 		C242EA3923152FF400E17B27 /* GitHubActivityFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubActivityFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C242EA3C23152FF400E17B27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C242EA3E23152FF400E17B27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				C242EAAC2315492C00E17B27 /* FeedsListLoadingState.swift */,
 				C242EAB123155E5800E17B27 /* FeedsListLoadedState.swift */,
 				C242EAB323155EC100E17B27 /* FeedsListFailedToLoadState.swift */,
+				C207366823159906002FE570 /* FeedsListFilterState.swift */,
 			);
 			path = StateMachine;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				C242EAA623153DAA00E17B27 /* Feed.swift in Sources */,
 				C242EAAD2315492C00E17B27 /* FeedsListLoadingState.swift in Sources */,
 				C242EAA223153B6600E17B27 /* FeedCell.swift in Sources */,
+				C207366923159906002FE570 /* FeedsListFilterState.swift in Sources */,
 				C242EAB82315678E00E17B27 /* Identifier.swift in Sources */,
 				C242EAA423153CB800E17B27 /* FeedsListInitialState.swift in Sources */,
 				C242EA98231535B900E17B27 /* FeedsRouter.swift in Sources */,

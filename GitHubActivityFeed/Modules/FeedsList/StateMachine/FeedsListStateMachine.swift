@@ -9,11 +9,7 @@
 import GameplayKit
 
 class FeedsListStateMachine: GKStateMachine {
-  weak var vc: FeedsListViewController!
-
-  init(vc: FeedsListViewController,
-       states: [GKState]) {
-    self.vc = vc
+  override init(states: [GKState]) {
     super.init(states: states)
   }
 }

@@ -11,6 +11,8 @@ import Combine
 import Foundation
 
 class GithubFeedsProvider: FeedsProvider {
+  private var cachedFeeds: [Feed] = []
+
   func getFeeds() -> AnyPublisher<[Feed], FeedsProviderError> {
     let config = URLSessionConfiguration.default
     config.requestCachePolicy = .reloadIgnoringLocalCacheData
@@ -20,7 +22,11 @@ class GithubFeedsProvider: FeedsProvider {
 
     let url = URL(string: "https://api.github.com/events")!
     return session.dataTaskPublisher(for: url).eraseToAnyPublisher()
-      .tryMap { try $0.data.decoded() as [Feed] }
+      .tryMap { [unowned self] in
+        let newFeeds = try $0.data.decoded() as [Feed]
+        self.cachedFeeds += newFeeds
+        return newFeeds
+      }
       .mapError {
         if $0 is DecodingError {
           return FeedsProviderError.decodingFailed($0)
@@ -30,5 +36,11 @@ class GithubFeedsProvider: FeedsProvider {
           return FeedsProviderError.undefined
         }
       }.eraseToAnyPublisher()
+  }
+
+  func getFilteredFeedsBy(type: String) -> AnyPublisher<[Feed], FeedsProviderError> {
+    return Just(cachedFeeds.filter { $0.type.lowercased().contains(type.lowercased()) })
+      .setFailureType(to: FeedsProviderError.self)
+      .eraseToAnyPublisher()
   }
 }

@@ -22,17 +22,23 @@ class FeedsListViewController: GenericViewController<FeedsListMainView>, Pathabl
   private var stateMachine: FeedsListStateMachine!
   private let feedsProvider: FeedsProvider
   private var loadingFeedsCancellable: AnyCancellable?
+  private var filteringFeedsCancellable: AnyCancellable?
+  private var dataSource: UICollectionViewDiffableDataSource<FeedsListMainView.FeedListSection, Feed>!
 
   init(factory: Factory, parameters: Parameters? = nil) {
     self.feedsProvider = factory.makeFeedsProvider()
+
     super.init(builder: AnyViewBuilderFactory(factory.makeFeedsListScreenBuilder()))
 
-    let loadedState = FeedsListLoadedState(dataSource: configureDataSource(with: mainView.feedsCollectionView))
+    self.dataSource = configureDataSource(with: mainView.feedsCollectionView)
+    let loadedState = FeedsListLoadedState(dataSource: dataSource)
+    let filteredState = FeedsListFilterState(dataSource: dataSource)
     let loadingState = FeedsListLoadingState(viewController: self, refreshControl: mainView.refreshControl)
-    self.stateMachine = FeedsListStateMachine(vc: self, states: [FeedsListInitialState(),
-                                                                 loadingState,
-                                                                 loadedState,
-                                                                 FeedsListFailedToLoadState()])
+    self.stateMachine = FeedsListStateMachine(states: [FeedsListInitialState(),
+                                                       loadingState,
+                                                       loadedState,
+                                                       filteredState,
+                                                       FeedsListFailedToLoadState()])
 
     configure()
   }
@@ -44,7 +50,7 @@ class FeedsListViewController: GenericViewController<FeedsListMainView>, Pathabl
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     stateMachine.enter(FeedsListInitialState.self)
-    loadData()
+    getNewFeeds()
   }
 }
 
@@ -53,16 +59,15 @@ private extension FeedsListViewController {
     mainView.feedsCollectionView.register(FeedCell.self,
                                           forCellWithReuseIdentifier: FeedCell.reuseIdentifier)
 
-    mainView.refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
+    mainView.refreshControl.addTarget(self, action: #selector(getNewFeeds), for: .valueChanged)
+    mainView.searchBar.delegate = self
   }
 
-  @objc func loadData() {
+  @objc func getNewFeeds() {
     stateMachine.enter(FeedsListLoadingState.self)
     loadingFeedsCancellable = feedsProvider.getFeeds()
       .receive(on: RunLoop.main)
-      .tap { [unowned self] in
-        self.stateMachine.enter(FeedsListInitialState.self)
-      }.sink(receiveCompletion: { completion in
+      .sink(receiveCompletion: { completion in
         switch completion {
         case .finished:
           break
@@ -72,13 +77,13 @@ private extension FeedsListViewController {
         }
       }, receiveValue: { [unowned self] feeds in
         let loadedState = self.stateMachine.state(forClass: FeedsListLoadedState.self)
-        let snapshot = loadedState?.lastSnapshot ?? self.makeSnapshot()
+        let snapshot = loadedState?.lastDownloadedSnapshot ?? self.makeSnapshot()
         if let lastItem = snapshot.itemIdentifiers.first {
           snapshot.insertItems(feeds, beforeItem: lastItem)
         } else {
           snapshot.appendItems(feeds)
         }
-        loadedState?.lastSnapshot = snapshot
+        loadedState?.lastDownloadedSnapshot = snapshot
         self.stateMachine.enter(FeedsListLoadedState.self)
       })
   }
@@ -103,8 +108,35 @@ private extension FeedsListViewController {
         fatalError("Cannot create new cell")
       }
 
-      cell.label.text = "\(indexPath.row): \(feed.type) - \(feed.id.rawValue)"
+      cell.titleLabel.text = "\(feed.type)"
       return cell
     }
+  }
+}
+
+extension FeedsListViewController: UISearchBarDelegate {
+  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    guard !searchText.isEmpty else {
+      stateMachine.enter(FeedsListLoadedState.self)
+      return
+    }
+
+    filteringFeedsCancellable = feedsProvider.getFilteredFeedsBy(type: searchText)
+      .receive(on: RunLoop.main)
+      .sink(receiveCompletion: { completion in
+        switch completion {
+        case .finished:
+          break
+        case .failure(let error):
+          self.stateMachine.state(forClass: FeedsListFailedToLoadState.self)?.error = error
+          self.stateMachine.enter(FeedsListFailedToLoadState.self)
+        }
+      }, receiveValue: { [unowned self] feeds in
+        let fileteredState = self.stateMachine.state(forClass: FeedsListFilterState.self)
+        let snapshot = self.makeSnapshot()
+        snapshot.appendItems(feeds)
+        fileteredState?.searchSnapshot = snapshot
+        self.stateMachine.enter(FeedsListFilterState.self)
+      })
   }
 }

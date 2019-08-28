@@ -20,4 +20,5 @@ protocol FeedsProviderFactory {
 
 protocol FeedsProvider {
   func getFeeds() -> AnyPublisher<[Feed], FeedsProviderError>
+  func getFilteredFeedsBy(type: String) -> AnyPublisher<[Feed], FeedsProviderError>
 }

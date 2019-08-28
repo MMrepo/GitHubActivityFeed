@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C207366923159906002FE570 /* FeedsListFilterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C207366823159906002FE570 /* FeedsListFilterState.swift */; };
+		C207368A23166BE4002FE570 /* GeneratedDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C207368923166BE4002FE570 /* GeneratedDetailsViewController.swift */; };
 		C242EA3D23152FF400E17B27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA3C23152FF400E17B27 /* AppDelegate.swift */; };
 		C242EA3F23152FF400E17B27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA3E23152FF400E17B27 /* SceneDelegate.swift */; };
 		C242EA4623152FF600E17B27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C242EA4523152FF600E17B27 /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 		C207366823159906002FE570 /* FeedsListFilterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsListFilterState.swift; sourceTree = "<group>"; };
 		C2073685231668DD002FE570 /* Routable */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Routable; sourceTree = "<group>"; };
 		C2073686231668DD002FE570 /* Architecture */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Architecture; sourceTree = "<group>"; };
+		C207368923166BE4002FE570 /* GeneratedDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedDetailsViewController.swift; sourceTree = "<group>"; };
 		C242EA3923152FF400E17B27 /* GitHubActivityFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubActivityFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C242EA3C23152FF400E17B27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C242EA3E23152FF400E17B27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 			children = (
 				C242EAAF23155BCB00E17B27 /* Publishers+Extensions.swift */,
 				C242EAB72315678E00E17B27 /* Identifier.swift */,
+				C207368923166BE4002FE570 /* GeneratedDetailsViewController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				C242EA8A2315341E00E17B27 /* FeedsListStateMachine.swift in Sources */,
 				C242EA3F23152FF400E17B27 /* SceneDelegate.swift in Sources */,
 				C242EA892315341E00E17B27 /* FeedsListViewController.swift in Sources */,
+				C207368A23166BE4002FE570 /* GeneratedDetailsViewController.swift in Sources */,
 				C242EA8D2315341E00E17B27 /* FeedsListMainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

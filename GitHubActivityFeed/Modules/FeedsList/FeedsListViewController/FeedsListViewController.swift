@@ -12,8 +12,12 @@ import GameplayKit
 import Routable
 import UIKit
 
+protocol FeedDetailsRouter: AnyObject {
+  func showDetails(with details: String)
+}
+
 protocol FeedsListViewControllerFactory: AnyObject {
-  func makeFeedsListViewController(parameters: Parameters?) -> FeedsListViewController
+  func makeFeedsListViewController(router: FeedDetailsRouter, parameters: Parameters?) -> FeedsListViewController
 }
 
 class FeedsListViewController: GenericViewController<FeedsListMainView>, Pathable {
@@ -24,9 +28,11 @@ class FeedsListViewController: GenericViewController<FeedsListMainView>, Pathabl
   private var loadingFeedsCancellable: AnyCancellable?
   private var filteringFeedsCancellable: AnyCancellable?
   private var dataSource: UICollectionViewDiffableDataSource<FeedsListMainView.FeedListSection, Feed>!
+  private weak var router: FeedDetailsRouter!
 
-  init(factory: Factory, parameters: Parameters? = nil) {
+  init(factory: Factory, router: FeedDetailsRouter, parameters: Parameters? = nil) {
     self.feedsProvider = factory.makeFeedsProvider()
+    self.router = router
 
     super.init(builder: AnyViewBuilderFactory(factory.makeFeedsListScreenBuilder()))
 
@@ -50,7 +56,7 @@ class FeedsListViewController: GenericViewController<FeedsListMainView>, Pathabl
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     stateMachine.enter(FeedsListInitialState.self)
-    getNewFeeds()
+    if dataSource.snapshot().numberOfItems == 0 { getNewFeeds() }
   }
 }
 
@@ -58,6 +64,7 @@ private extension FeedsListViewController {
   func configure() {
     mainView.feedsCollectionView.register(FeedCell.self,
                                           forCellWithReuseIdentifier: FeedCell.reuseIdentifier)
+    mainView.feedsCollectionView.delegate = self
 
     mainView.refreshControl.addTarget(self, action: #selector(getNewFeeds), for: .valueChanged)
     mainView.searchBar.delegate = self
@@ -109,6 +116,15 @@ private extension FeedsListViewController {
       cell.titleLabel.text = "\(feed.type)"
       return cell
     }
+  }
+}
+
+extension FeedsListViewController: UICollectionViewDelegate {
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    collectionView.deselectItem(at: indexPath, animated: true)
+    guard let feed = self.dataSource.itemIdentifier(for: indexPath) else { return }
+
+    router.showDetails(with: "\(feed)")
   }
 }
 

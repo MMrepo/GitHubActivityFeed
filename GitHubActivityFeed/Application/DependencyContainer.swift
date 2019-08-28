@@ -31,13 +31,19 @@ extension DependencyContainer: FeedsListViewBuilderFactory {
 }
 
 extension DependencyContainer: FeedsListViewControllerFactory {
-  func makeFeedsListViewController(parameters: Parameters?) -> FeedsListViewController {
-    return FeedsListViewController(factory: self, parameters: parameters)
+  func makeFeedsListViewController(router: FeedDetailsRouter, parameters: Parameters?) -> FeedsListViewController {
+    return FeedsListViewController(factory: self, router: router, parameters: parameters)
   }
 }
 
 extension DependencyContainer: FeedsProviderFactory {
   func makeFeedsProvider() -> FeedsProvider {
     return GithubFeedsProvider()
+  }
+}
+
+extension DependencyContainer: GeneratedDetailsViewControllerFactory {
+  func makeGeneratedDetailsViewController(parameters: Parameters?) -> GeneratedDetailsViewController {
+    return GeneratedDetailsViewController(parameters: parameters)
   }
 }

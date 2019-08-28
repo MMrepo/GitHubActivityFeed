@@ -14,7 +14,7 @@ protocol FeedsRouterFactory {
 }
 
 final class FeedsRouter: Router, Pathable {
-  typealias Factory = FeedsListViewControllerFactory
+  typealias Factory = FeedsListViewControllerFactory & GeneratedDetailsViewControllerFactory
   private weak var factory: Factory!
   private weak var navController: UINavigationController!
 
@@ -37,9 +37,22 @@ final class FeedsRouter: Router, Pathable {
 private extension FeedsRouter {
   func registerPaths() {
     register(path: FeedsListViewController.path) { [unowned self] parameters, animated in
-      let viewController = self.factory.makeFeedsListViewController(parameters: parameters)
+      let viewController = self.factory.makeFeedsListViewController(router: self, parameters: parameters)
       self.navController.pushViewController(viewController, animated: animated)
       return self
     }
+
+    register(path: GeneratedDetailsViewController.path) { [unowned self] parameters, animated in
+      let viewController = self.factory.makeGeneratedDetailsViewController(parameters: parameters)
+      self.navController.pushViewController(viewController, animated: animated)
+      return self
+    }
+  }
+}
+
+extension FeedsRouter: FeedDetailsRouter {
+  func showDetails(with details: String) {
+    let parameters = [GeneratedDetailsViewController.detailsKey: details]
+    try? go(to: GeneratedDetailsViewController.path, parameters: parameters, animated: true)
   }
 }

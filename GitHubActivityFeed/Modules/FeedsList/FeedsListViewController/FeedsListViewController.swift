@@ -87,8 +87,6 @@ private extension FeedsListViewController {
         self.stateMachine.enter(FeedsListLoadedState.self)
       })
   }
-
-  func refreshButtonTapped(sender: UIBarButtonItem) {}
 }
 
 private extension FeedsListViewController {

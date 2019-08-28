@@ -60,6 +60,8 @@
 
 /* Begin PBXFileReference section */
 		C207366823159906002FE570 /* FeedsListFilterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsListFilterState.swift; sourceTree = "<group>"; };
+		C2073685231668DD002FE570 /* Routable */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Routable; sourceTree = "<group>"; };
+		C2073686231668DD002FE570 /* Architecture */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Architecture; sourceTree = "<group>"; };
 		C242EA3923152FF400E17B27 /* GitHubActivityFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubActivityFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C242EA3C23152FF400E17B27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C242EA3E23152FF400E17B27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,8 +74,6 @@
 		C242EA5A23152FF600E17B27 /* GitHubActivityFeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHubActivityFeedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C242EA5E23152FF600E17B27 /* GitHubActivityFeedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubActivityFeedUITests.swift; sourceTree = "<group>"; };
 		C242EA6023152FF600E17B27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C242EA6C2315304200E17B27 /* Architecture */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Architecture; sourceTree = "<group>"; };
-		C242EA6D2315304200E17B27 /* Routable */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Routable; sourceTree = "<group>"; };
 		C242EA74231531C600E17B27 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		C242EA76231531D100E17B27 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		C242EA812315341E00E17B27 /* FeedsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedsListViewController.swift; sourceTree = "<group>"; };
@@ -126,12 +126,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C2073687231669F9002FE570 /* DataProviders */ = {
+			isa = PBXGroup;
+			children = (
+				C242EAA72315426200E17B27 /* FeedsProvider */,
+			);
+			path = DataProviders;
+			sourceTree = "<group>";
+		};
+		C207368823166A53002FE570 /* FeedsListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C242EA822315341E00E17B27 /* StateMachine */,
+				C242EA842315341E00E17B27 /* View */,
+				C242EA812315341E00E17B27 /* FeedsListViewController.swift */,
+			);
+			path = FeedsListViewController;
+			sourceTree = "<group>";
+		};
 		C242EA3023152FF300E17B27 = {
 			isa = PBXGroup;
 			children = (
+				C2073686231668DD002FE570 /* Architecture */,
+				C2073685231668DD002FE570 /* Routable */,
 				C242EABC23156FF000E17B27 /* Resources */,
-				C242EA6C2315304200E17B27 /* Architecture */,
-				C242EA6D2315304200E17B27 /* Routable */,
 				C242EA3B23152FF400E17B27 /* GitHubActivityFeed */,
 				C242EA5223152FF600E17B27 /* GitHubActivityFeedTests */,
 				C242EA5D23152FF600E17B27 /* GitHubActivityFeedUITests */,
@@ -153,6 +171,8 @@
 		C242EA3B23152FF400E17B27 /* GitHubActivityFeed */ = {
 			isa = PBXGroup;
 			children = (
+				C2073687231669F9002FE570 /* DataProviders */,
+				C242EA9A2315393400E17B27 /* Models */,
 				C242EAAE23155BAC00E17B27 /* Utils */,
 				C242EA7D231533FF00E17B27 /* Modules */,
 				C242EA73231531B300E17B27 /* Application */,
@@ -211,11 +231,7 @@
 		C242EA802315341E00E17B27 /* FeedsList */ = {
 			isa = PBXGroup;
 			children = (
-				C242EAA72315426200E17B27 /* FeedsProvider */,
-				C242EA9A2315393400E17B27 /* Models */,
-				C242EA812315341E00E17B27 /* FeedsListViewController.swift */,
-				C242EA822315341E00E17B27 /* StateMachine */,
-				C242EA842315341E00E17B27 /* View */,
+				C207368823166A53002FE570 /* FeedsListViewController */,
 			);
 			path = FeedsList;
 			sourceTree = "<group>";

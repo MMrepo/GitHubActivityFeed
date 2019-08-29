@@ -7,7 +7,7 @@
 
 import UIKit
 
-public typealias Parameters = [String: String]
+public typealias Parameters = [String: Any]
 public typealias Router = UIViewController & Routable
 
 private var routableAssociateKey: Void?

@@ -64,7 +64,8 @@ class FeedsListViewController: GenericViewController<FeedsListMainView>, Pathabl
 
 extension FeedsListViewController {
   @objc func getNewFeeds() {
-    stateMachine.enter(FeedsListLoadingState.self)
+    stateMachine.enterLoadingState()
+
     loadingFeedsCancellable = feedsController.getFeeds()
       .receive(on: RunLoop.main)
       .sink(receiveCompletion: { completion in
@@ -72,20 +73,17 @@ extension FeedsListViewController {
         case .finished:
           break
         case .failure(let error):
-          self.stateMachine.state(forClass: FeedsListFailedToLoadState.self)?.error = error
-          self.stateMachine.enter(FeedsListFailedToLoadState.self)
+          self.stateMachine.enterFailedLoadingState(with: error)
         }
-      }, receiveValue: { [unowned self] feeds in
-        let loadedState = self.stateMachine.state(forClass: FeedsListLoadedState.self)
+      }, receiveValue: { feeds in
         let snapshot = self.makeSnapshot()
         snapshot.appendItems(feeds)
 
-        if let oldItems = loadedState?.lastDownloadedSnapshot?.itemIdentifiers {
+        if let oldItems = self.stateMachine.lastLoadedSnapshot?.itemIdentifiers {
           snapshot.appendItems(oldItems)
         }
 
-        loadedState?.lastDownloadedSnapshot = snapshot
-        self.stateMachine.enter(FeedsListLoadedState.self)
+        self.stateMachine.enterLoadedState(with: snapshot)
       })
   }
 }
@@ -101,13 +99,31 @@ private extension FeedsListViewController {
   }
 
   func startWith(parameters: Parameters?) {
-    switch parameters?["state"] {
-    case "loading":
-      stateMachine.enter(FeedsListLoadingState.self)
-    case "loadingFailed":
-      stateMachine.enter(FeedsListFailedToLoadState.self)
+    guard let state = parameters?["state"] as? String else {
+      stateMachine.enterInitialState()
+      return
+    }
+
+    switch state {
+    case FeedsListInitialState.parameterName:
+      stateMachine.enterInitialState()
+    case FeedsListLoadingState.parameterName:
+      stateMachine.enterLoadingState()
+    case FeedsListFailedToLoadState.parameterName:
+      if let error = parameters?["error"] as? Error {
+        stateMachine.enterFailedLoadingState(with: error)
+      } else { fallthrough }
+    case FeedsListLoadedState.parameterName:
+      if let snapshot = parameters?["snapshot"] as? NSDiffableDataSourceSnapshot<FeedsListMainView.FeedListSection, Feed> {
+        stateMachine.enterLoadedState(with: snapshot)
+      } else { fallthrough }
+    case FeedsListFilterState.parameterName:
+      if let snapshot = parameters?["snapshot"] as? NSDiffableDataSourceSnapshot<FeedsListMainView.FeedListSection, Feed> {
+        stateMachine.enterFilterState(with: snapshot)
+      } else { fallthrough }
+
     default:
-      stateMachine.enter(FeedsListInitialState.self)
+      stateMachine.enterInitialState()
     }
   }
 
@@ -145,7 +161,7 @@ extension FeedsListViewController: UICollectionViewDelegate {
 extension FeedsListViewController: UISearchBarDelegate {
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     guard !searchText.isEmpty else {
-      stateMachine.enter(FeedsListLoadedState.self)
+      stateMachine.enterLoadedState()
       return
     }
 
@@ -156,15 +172,12 @@ extension FeedsListViewController: UISearchBarDelegate {
         case .finished:
           break
         case .failure(let error):
-          self.stateMachine.state(forClass: FeedsListFailedToLoadState.self)?.error = error
-          self.stateMachine.enter(FeedsListFailedToLoadState.self)
+          self.stateMachine.enterFailedLoadingState(with: error)
         }
-      }, receiveValue: { [unowned self] feeds in
-        let fileteredState = self.stateMachine.state(forClass: FeedsListFilterState.self)
+      }, receiveValue: { feeds in
         let snapshot = self.makeSnapshot()
         snapshot.appendItems(feeds)
-        fileteredState?.searchSnapshot = snapshot
-        self.stateMachine.enter(FeedsListFilterState.self)
+        self.stateMachine.enterFilterState(with: snapshot)
       })
   }
 }

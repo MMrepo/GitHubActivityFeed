@@ -27,3 +27,9 @@ class FeedsListLoadedState: GKState {
     super.init()
   }
 }
+
+extension FeedsListLoadedState: Parametrable {
+  static var parameterName: String {
+    return "loaded"
+  }
+}

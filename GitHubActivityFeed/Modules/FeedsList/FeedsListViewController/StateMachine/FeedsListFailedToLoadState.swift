@@ -21,3 +21,9 @@ class FeedsListFailedToLoadState: GKState {
     super.init()
   }
 }
+
+extension FeedsListFailedToLoadState: Parametrable {
+  static var parameterName: String {
+    return "failedToLoad"
+  }
+}

@@ -17,6 +17,8 @@
 		C20736A92317DA2C002FE570 /* 30Events.json in Resources */ = {isa = PBXBuildFile; fileRef = C20736A82317DA2B002FE570 /* 30Events.json */; };
 		C20736AE2317DA9E002FE570 /* Providers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20736AD2317DA9E002FE570 /* Providers.swift */; };
 		C20736B02317E3BC002FE570 /* CorruptedEvents.json in Resources */ = {isa = PBXBuildFile; fileRef = C20736AF2317E3BB002FE570 /* CorruptedEvents.json */; };
+		C20736B323180361002FE570 /* ParameterParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20736B223180361002FE570 /* ParameterParser.swift */; };
+		C20736B52318037F002FE570 /* FeedsListParameterParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20736B42318037F002FE570 /* FeedsListParameterParser.swift */; };
 		C242EA3D23152FF400E17B27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA3C23152FF400E17B27 /* AppDelegate.swift */; };
 		C242EA3F23152FF400E17B27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA3E23152FF400E17B27 /* SceneDelegate.swift */; };
 		C242EA4623152FF600E17B27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C242EA4523152FF600E17B27 /* Assets.xcassets */; };
@@ -79,6 +81,8 @@
 		C20736A82317DA2B002FE570 /* 30Events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 30Events.json; sourceTree = "<group>"; };
 		C20736AD2317DA9E002FE570 /* Providers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Providers.swift; sourceTree = "<group>"; };
 		C20736AF2317E3BB002FE570 /* CorruptedEvents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CorruptedEvents.json; sourceTree = "<group>"; };
+		C20736B223180361002FE570 /* ParameterParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterParser.swift; sourceTree = "<group>"; };
+		C20736B42318037F002FE570 /* FeedsListParameterParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsListParameterParser.swift; sourceTree = "<group>"; };
 		C242EA3923152FF400E17B27 /* GitHubActivityFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubActivityFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C242EA3C23152FF400E17B27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C242EA3E23152FF400E17B27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -179,6 +183,15 @@
 			path = Providers;
 			sourceTree = "<group>";
 		};
+		C20736B12318034E002FE570 /* ParametersParser */ = {
+			isa = PBXGroup;
+			children = (
+				C20736B223180361002FE570 /* ParameterParser.swift */,
+				C20736B42318037F002FE570 /* FeedsListParameterParser.swift */,
+			);
+			path = ParametersParser;
+			sourceTree = "<group>";
+		};
 		C242EA3023152FF300E17B27 = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +272,7 @@
 		C242EA7D231533FF00E17B27 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				C20736B12318034E002FE570 /* ParametersParser */,
 				C242EA802315341E00E17B27 /* FeedsList */,
 				C242EA97231535B900E17B27 /* FeedsRouter.swift */,
 			);
@@ -531,12 +545,14 @@
 				C207369E2317AD5D002FE570 /* CommandLine+Extensions.swift in Sources */,
 				C242EAA423153CB800E17B27 /* FeedsListInitialState.swift in Sources */,
 				C242EA98231535B900E17B27 /* FeedsRouter.swift in Sources */,
+				C20736B323180361002FE570 /* ParameterParser.swift in Sources */,
 				C20736A02317CCF0002FE570 /* FeedsController.swift in Sources */,
 				C242EAAB2315427F00E17B27 /* FeedsProvider.swift in Sources */,
 				C242EAB223155E5800E17B27 /* FeedsListLoadedState.swift in Sources */,
 				C242EA77231531D100E17B27 /* DependencyContainer.swift in Sources */,
 				C242EAB023155BCB00E17B27 /* Publishers+Extensions.swift in Sources */,
 				C242EA8B2315341E00E17B27 /* FeedsListStylizer.swift in Sources */,
+				C20736B52318037F002FE570 /* FeedsListParameterParser.swift in Sources */,
 				C242EA8C2315341E00E17B27 /* FeedsListPositioner.swift in Sources */,
 				C242EAB62315671100E17B27 /* GithubFeedsProvider.swift in Sources */,
 				C242EAB423155EC100E17B27 /* FeedsListFailedToLoadState.swift in Sources */,

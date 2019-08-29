@@ -58,3 +58,9 @@ extension DependencyContainer: GeneratedDetailsViewControllerFactory {
     return GeneratedDetailsViewController(parameters: parameters)
   }
 }
+
+extension DependencyContainer: FeedsListParameterParserFactory {
+  func makeParameterParserForFeedsList() -> ParameterParser {
+    return FeedsListParameterParser()
+  }
+}

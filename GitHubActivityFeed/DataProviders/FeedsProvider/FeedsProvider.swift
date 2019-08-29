@@ -10,7 +10,7 @@ import Combine
 import Foundation
 
 enum FeedsProviderError: Error {
-  case undefined
+  case undefined(String)
   case decodingFailed(Error)
   case requestFailed(Error)
   case serverError(statusCode: Int)

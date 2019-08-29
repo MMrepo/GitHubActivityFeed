@@ -51,3 +51,9 @@ private extension FeedsListLoadingState {
     return alert
   }
 }
+
+extension FeedsListLoadingState: Parametrable {
+  static var parameterName: String {
+    return "loading"
+  }
+}

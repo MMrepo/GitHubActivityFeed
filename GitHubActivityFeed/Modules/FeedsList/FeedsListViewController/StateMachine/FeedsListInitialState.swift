@@ -25,3 +25,9 @@ class FeedsListInitialState: GKState {
     super.init()
   }
 }
+
+extension FeedsListInitialState: Parametrable {
+  static var parameterName: String {
+    return "initial"
+  }
+}

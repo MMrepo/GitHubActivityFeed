@@ -27,3 +27,9 @@ class FeedsListFilterState: GKState {
     super.init()
   }
 }
+
+extension FeedsListFilterState: Parametrable {
+  static var parameterName: String {
+    return "filtered"
+  }
+}

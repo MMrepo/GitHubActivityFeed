@@ -37,7 +37,7 @@ extension FeedsController {
         } else if let error = $0 as? FeedsProviderError {
           return error
         } else {
-          return FeedsProviderError.undefined
+          return FeedsProviderError.undefined("Error couldn't be handled")
         }
       }.eraseToAnyPublisher()
   }

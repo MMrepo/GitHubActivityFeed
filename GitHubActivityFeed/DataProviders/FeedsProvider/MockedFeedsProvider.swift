@@ -11,27 +11,24 @@ import Combine
 import Foundation
 
 class MockedFeedsProvider: FeedsProvider {
-  func getFeeds() -> AnyPublisher<[Feed], FeedsProviderError> {
-    return Future<[Feed], FeedsProviderError> { promise in
+  func getFeeds() -> AnyPublisher<(data: Data, response: URLResponse), Error> {
+    return Future<(data: Data, response: URLResponse), Error> { promise in
       DispatchQueue.global(qos: .background).async {
         guard let path = Bundle.main.path(forResource: "MockedEvents", ofType: "json") else {
-          promise(.failure(FeedsProviderError.undefined))
+          promise(.failure(FeedsProviderError.serverError(statusCode: 404)))
           return
         }
         do {
-          let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-          let feeds = try data.decoded() as [Feed]
-          promise(.success(feeds))
+          let url = URL(fileURLWithPath: path)
+          let data = try Data(contentsOf: url, options: .mappedIfSafe)
+          let response = URLResponse(url: url, mimeType: "application/json", expectedContentLength: data.count, textEncodingName: nil)
+          promise(.success((data: data, response: response)))
         } catch {
-          promise(.failure(FeedsProviderError.decodingFailed(error)))
+          promise(.failure(FeedsProviderError.requestFailed(error)))
         }
       }
     }
-    .delay(for: 2.0, scheduler: DispatchQueue(label: "mockedDownloadingBackgroundQueue"))
+    .delay(for: 1.0, scheduler: DispatchQueue(label: "mockedDownloadingBackgroundQueue"))
     .eraseToAnyPublisher()
-  }
-
-  func getFilteredFeedsBy(type: String) -> AnyPublisher<[Feed], FeedsProviderError> {
-    return getFeeds().map { $0.filter { $0.type.contains(type) } }.eraseToAnyPublisher()
   }
 }

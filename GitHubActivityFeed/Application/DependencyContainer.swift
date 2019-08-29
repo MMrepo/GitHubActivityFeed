@@ -9,7 +9,12 @@
 import Foundation
 import Routable
 
-final class DependencyContainer {}
+final class DependencyContainer {
+  private let shouldUseMockedProviders: Bool
+  init(shouldUseMockedProviders: Bool) {
+    self.shouldUseMockedProviders = shouldUseMockedProviders
+  }
+}
 
 // MARK: ApplicationFactory
 extension DependencyContainer: ApplicationFactory {
@@ -38,7 +43,13 @@ extension DependencyContainer: FeedsListViewControllerFactory {
 
 extension DependencyContainer: FeedsProviderFactory {
   func makeFeedsProvider() -> FeedsProvider {
-    return GithubFeedsProvider()
+    return shouldUseMockedProviders ? MockedFeedsProvider() : GithubFeedsProvider()
+  }
+}
+
+extension DependencyContainer: FeedsControllerFactory {
+  func makeFeedsController() -> FeedsController {
+    return FeedsController(factory: self)
   }
 }
 

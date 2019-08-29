@@ -33,6 +33,7 @@ extension FeedCell {
       make.centerY.equalToSuperview()
     }
 
+    accessibilityIdentifier = "feedCell"
     titleLabel.adjustsFontForContentSizeCategory = true
     titleLabel.font = UIFont.preferredFont(forTextStyle: .title2)
     titleLabel.textColor = .label

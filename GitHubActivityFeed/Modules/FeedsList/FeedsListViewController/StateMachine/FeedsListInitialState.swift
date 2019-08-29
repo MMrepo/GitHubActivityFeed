@@ -10,9 +10,18 @@ import GameplayKit
 import UIKit
 
 class FeedsListInitialState: GKState {
-  override func didEnter(from previousState: GKState?) {}
+  private weak var viewController: FeedsListViewController!
 
-  override init() {
+  override func didEnter(from previousState: GKState?) {
+    viewController.getNewFeeds()
+  }
+
+  override func isValidNextState(_ stateClass: AnyClass) -> Bool {
+    return stateClass == FeedsListLoadingState.self
+  }
+
+  init(viewController: FeedsListViewController) {
+    self.viewController = viewController
     super.init()
   }
 }

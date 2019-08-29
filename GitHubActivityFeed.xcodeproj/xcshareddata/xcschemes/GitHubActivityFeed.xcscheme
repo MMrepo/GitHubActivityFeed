@@ -29,12 +29,13 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO">
+            skipped = "YES"
+            testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C242EA4E23152FF600E17B27"
-               BuildableName = "GitHubActivityFeedTests.xctest"
-               BlueprintName = "GitHubActivityFeedTests"
+               BlueprintIdentifier = "C242EA5923152FF600E17B27"
+               BuildableName = "GitHubActivityFeedUITests.xctest"
+               BlueprintName = "GitHubActivityFeedUITests"
                ReferencedContainer = "container:GitHubActivityFeed.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,9 +43,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C242EA5923152FF600E17B27"
-               BuildableName = "GitHubActivityFeedUITests.xctest"
-               BlueprintName = "GitHubActivityFeedUITests"
+               BlueprintIdentifier = "C242EA4E23152FF600E17B27"
+               BuildableName = "GitHubActivityFeedTests.xctest"
+               BlueprintName = "GitHubActivityFeedTests"
                ReferencedContainer = "container:GitHubActivityFeed.xcodeproj">
             </BuildableReference>
          </TestableReference>

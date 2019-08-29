@@ -31,6 +31,7 @@ class GeneratedDetailsViewController: UIViewController, Pathable {
 
     let details = parameters?[GeneratedDetailsViewController.detailsKey] ?? "No details provided!"
     textView.text = "\(details)"
+    textView.accessibilityIdentifier = "detailsTextView"
   }
 
   required init?(coder: NSCoder) {

@@ -15,7 +15,8 @@ class FeedsListLoadingState: GKState {
   private let loadingIndicator: UIAlertController
 
   override func didEnter(from previousState: GKState?) {
-    if previousState is FeedsListInitialState {
+    // As we don't want to show two loading indicators at once.
+    if !refreshControl.isRefreshing {
       viewController.present(loadingIndicator, animated: true)
     }
   }
@@ -45,7 +46,7 @@ private extension FeedsListLoadingState {
     loadingIndicator.hidesWhenStopped = true
     loadingIndicator.style = UIActivityIndicatorView.Style.medium
     loadingIndicator.startAnimating()
-
+    loadingIndicator.accessibilityIdentifier = "loadingIndicator"
     alert.view.addSubview(loadingIndicator)
     return alert
   }

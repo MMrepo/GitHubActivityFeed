@@ -9,7 +9,7 @@
 import Routable
 import UIKit
 
-protocol FeedsRouterFactory {
+protocol FeedsRouterFactory: AnyObject {
   func makeFeedsRouter() -> FeedsRouter
 }
 

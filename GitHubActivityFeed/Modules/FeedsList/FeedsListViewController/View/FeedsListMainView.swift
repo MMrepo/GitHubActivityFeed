@@ -19,6 +19,10 @@ class FeedsListMainView: UIView {
     addSubview(searchBar)
     addSubview(feedsCollectionView)
     feedsCollectionView.refreshControl = refreshControl
+
+    refreshControl.accessibilityIdentifier = "refreshControl"
+    self.accessibilityIdentifier = "feedsListMainView"
+    searchBar.accessibilityIdentifier = "filterFeeds"
   }
 
   required init?(coder: NSCoder) {

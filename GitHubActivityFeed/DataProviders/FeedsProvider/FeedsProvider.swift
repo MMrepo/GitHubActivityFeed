@@ -7,11 +7,13 @@
 //
 
 import Combine
+import Foundation
 
 enum FeedsProviderError: Error {
   case undefined
   case decodingFailed(Error)
   case requestFailed(Error)
+  case serverError(statusCode: Int)
 }
 
 protocol FeedsProviderFactory {
@@ -19,6 +21,5 @@ protocol FeedsProviderFactory {
 }
 
 protocol FeedsProvider {
-  func getFeeds() -> AnyPublisher<[Feed], FeedsProviderError>
-  func getFilteredFeedsBy(type: String) -> AnyPublisher<[Feed], FeedsProviderError>
+  func getFeeds() -> AnyPublisher<(data: Data, response: URLResponse), Error>
 }

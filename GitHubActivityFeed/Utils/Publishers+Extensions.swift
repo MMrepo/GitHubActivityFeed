@@ -15,4 +15,11 @@ extension Publisher {
       return $0
     }.eraseToAnyPublisher()
   }
+
+  func cache(with cacheAction: @escaping (Self.Output) -> Void) -> AnyPublisher<Self.Output, Self.Failure> {
+    return map {
+      cacheAction($0)
+      return $0
+    }.eraseToAnyPublisher()
+  }
 }

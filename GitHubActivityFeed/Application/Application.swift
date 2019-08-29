@@ -14,7 +14,7 @@ protocol ApplicationFactory {
 }
 
 final class Application: Router {
-  typealias Factory = DependencyContainer
+  typealias Factory = FeedsRouterFactory
   private weak var factory: Factory!
 
   init(factory: Factory) {

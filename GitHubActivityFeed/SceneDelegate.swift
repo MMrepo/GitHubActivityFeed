@@ -16,11 +16,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   func scene(_ scene: UIScene,
              willConnectTo session: UISceneSession,
              options connectionOptions: UIScene.ConnectionOptions) {
-    // Don't start whole machinery when running Unit tests
-
     guard let windowScene = (scene as? UIWindowScene) else { return }
     let window = UIWindow(windowScene: windowScene)
     self.window = window
+
+    // Don't start whole machinery when running Unit tests
     guard !CommandLine.arguments.contains("-ut") else {
       UIView.setAnimationsEnabled(false)
       window.makeKeyAndVisible()
@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     let shouldUseMockedProviders = CommandLine.arguments.contains("-uit")
-    let startPath = CommandLine.option(for: "-s")?.valueArgument ?? "/FeedsRouter/FeedsListViewController?withAnimations=true&state=loading"
+    let startPath = CommandLine.option(for: "-s")?.valueArgument ?? "/FeedsRouter/FeedsListViewController"
 
     let startPathURL = URL(string: startPath)!
     restartAppWith(window: window, startPath: startPathURL, shouldUseMockedProviders: shouldUseMockedProviders)

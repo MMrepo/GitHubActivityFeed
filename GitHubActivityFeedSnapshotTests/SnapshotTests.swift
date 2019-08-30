@@ -16,17 +16,8 @@ extension FeedTests {
     rootViewController.beginAppearanceTransition(true, animated: false)
     rootViewController.endAppearanceTransition()
     rootViewController.children.forEach{
-      print("$0: \($0)")
       forceCallLifecycleMethods(rootViewController: $0)
     }
-  }
-  
-  func getRootView(for view: UIView) -> UIView {
-    if let superview = view.superview {
-     print("superview: \(superview)")
-      return getRootView(for: superview)
-    }
-    else { return view }
   }
 }
 
@@ -38,35 +29,17 @@ class FeedTests: XCTestCase {
   override func setUp() {
     app = Application(factory: dependecyContainer)
   }
-  
-  override func tearDown() {
-  }
-  
+
   func testFeedsListViewControllerLoadedStateSnapshot() {
     guard let router = try! app.open(url: URL(string: feedsListViewControllerLoaded)!) as? UIViewController else { return }
     forceCallLifecycleMethods(rootViewController: router)
-    assertSnapshot(matching: app, as: .image(on: .iPhoneXr(.portrait)))
+    assertSnapshot(matching: app, as: .image(drawHierarchyInKeyWindow: true))
   }
   
   func testFeedsListViewControllerInitialStateSnapshot() {
     guard let router = try! app.open(url: URL(string: feedsListViewControllerInitial)!) as? UIViewController else { return }
     forceCallLifecycleMethods(rootViewController: router)
-    assertSnapshot(matching: app, as: .image(on: .iPhoneXr(.portrait)))
-  }
-  
-  func testFeedsListViewControllerLoadingStateSnapshot() {
-    guard let router = try! app.open(url: URL(string: feedsListViewControllerLoading)!) as? UIViewController else { return }
-    forceCallLifecycleMethods(rootViewController: router)
-    
-//    let ww = UIApplication.shared.keyWindow
-    let ww = getRootView(for: app.view)
-    assertSnapshot(matching: ww, as: .image(drawHierarchyInKeyWindow: true))
-  }
-  
-  func testFeedsListViewControllerFailedToLoadStateSnapshot() {
-    guard let router = try! app.open(url: URL(string: feedsListViewControllerFailedToLoad)!) as? UIViewController else { return }
-    forceCallLifecycleMethods(rootViewController: router)
-    assertSnapshot(matching: app, as: .image(on: .iPhoneXr(.portrait)))
+    assertSnapshot(matching: app, as: .image(drawHierarchyInKeyWindow: true))
   }
 }
 
@@ -75,11 +48,5 @@ extension FeedTests {
   }
   
   var feedsListViewControllerInitial: String { "/FeedsRouter/FeedsListViewController?state=initial&withAnimations=false"
-  }
-  
-  var feedsListViewControllerLoading: String { "/FeedsRouter/FeedsListViewController?state=loading&withAnimations=false"
-  }
-  
-  var feedsListViewControllerFailedToLoad: String { "/FeedsRouter/FeedsListViewController?state=failedToLoad&withAnimations=false"
   }
 }

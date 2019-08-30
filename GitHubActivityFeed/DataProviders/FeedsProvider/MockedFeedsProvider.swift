@@ -28,7 +28,7 @@ class MockedFeedsProvider: FeedsProvider {
         }
       }
     }
-    .delay(for: 1.0, scheduler: DispatchQueue(label: "mockedDownloadingBackgroundQueue"))
+    .delay(for: 2.0, scheduler: DispatchQueue(label: "mockedDownloadingBackgroundQueue"))
     .eraseToAnyPublisher()
   }
 }

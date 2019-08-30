@@ -17,6 +17,10 @@ class FeedsListStateMachine {
   init(states: [GKState]) {
     self.stateMachine = GKStateMachine(states: states)
   }
+
+  func currentState() -> GKState? {
+    return stateMachine.currentState
+  }
 }
 
 // MARK: API

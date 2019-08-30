@@ -10,6 +10,7 @@ import GameplayKit
 import UIKit
 
 class FeedsListLoadingState: GKState {
+  private var withAnimations: Bool
   private weak var viewController: FeedsListViewController!
   private weak var refreshControl: UIRefreshControl!
   private let loadingIndicator: UIAlertController
@@ -17,7 +18,7 @@ class FeedsListLoadingState: GKState {
   override func didEnter(from previousState: GKState?) {
     // As we don't want to show two loading indicators at once.
     if !refreshControl.isRefreshing {
-      viewController.present(loadingIndicator, animated: true)
+      viewController.present(loadingIndicator, animated: withAnimations)
     }
   }
 
@@ -30,10 +31,11 @@ class FeedsListLoadingState: GKState {
     return stateClass == FeedsListLoadedState.self || stateClass == FeedsListFailedToLoadState.self
   }
 
-  init(viewController: FeedsListViewController, refreshControl: UIRefreshControl) {
+  init(viewController: FeedsListViewController, refreshControl: UIRefreshControl, withAnimations: Bool) {
     self.viewController = viewController
     self.loadingIndicator = FeedsListLoadingState.makeLoadingIndicator()
     self.refreshControl = refreshControl
+    self.withAnimations = withAnimations
     super.init()
   }
 }

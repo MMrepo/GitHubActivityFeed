@@ -35,14 +35,19 @@ class FeedsListViewController: GenericViewController<FeedsListMainView>, Pathabl
     self.feedsController = factory.makeFeedsController()
     self.router = router
     self.parameters = parameters
+    let withAnimations = parameters?["withAnimations"] as? Bool ?? true
 
     super.init(builder: AnyViewBuilderFactory(factory.makeFeedsListScreenBuilder()))
 
     self.dataSource = configureDataSource(with: mainView.feedsCollectionView)
     let initialState = FeedsListInitialState(viewController: self)
-    let loadedState = FeedsListLoadedState(dataSource: dataSource)
-    let filteredState = FeedsListFilterState(dataSource: dataSource)
-    let loadingState = FeedsListLoadingState(viewController: self, refreshControl: mainView.refreshControl)
+    let loadedState = FeedsListLoadedState(dataSource: dataSource,
+                                           withAnimations: withAnimations)
+    let filteredState = FeedsListFilterState(dataSource: dataSource,
+                                             withAnimations: withAnimations)
+    let loadingState = FeedsListLoadingState(viewController: self,
+                                             refreshControl: mainView.refreshControl,
+                                             withAnimations: withAnimations)
     self.stateMachine = FeedsListStateMachine(states: [initialState,
                                                        loadingState,
                                                        loadedState,
@@ -96,6 +101,8 @@ private extension FeedsListViewController {
 
     mainView.refreshControl.addTarget(self, action: #selector(getNewFeeds), for: .valueChanged)
     mainView.searchBar.delegate = self
+
+    navigationItem.title = "Github events"
   }
 
   func startWith(parameters: Parameters?) {

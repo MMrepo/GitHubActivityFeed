@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "6B546B98-8B23-4AAE-9C85-1C293F311B29",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "commandLineArgumentEntries" : [
+      {
+        "argument" : "-ut",
+        "enabled" : false
+      }
+    ]
+  },
+  "testTargets" : [
+
+  ],
+  "version" : 1
+}

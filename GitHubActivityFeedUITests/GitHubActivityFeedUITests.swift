@@ -16,12 +16,13 @@ class FeedsListUITests: XCTestCase {
     super.setUp()
     continueAfterFailure = false
     app = XCUIApplication()
-    app.launchArguments.append("-t")
+    app.launchArguments.append("-uit")
     app.launchArguments.append("-s")
-    app.launchArguments.append("/FeedsRouter/FeedsListViewController/")
+    app.launchArguments.append("/FeedsRouter/FeedsListViewController")
   }
   
   override func tearDown() {
+    app = nil
   }
   
   func testShouldShowLoadingIndicatorPresentLoadedDataAndHideIndicatorOnAppStart() {
@@ -39,29 +40,29 @@ class FeedsListUITests: XCTestCase {
     XCTAssert(app.cells["feedCell"].staticTexts["CreateEvent"].waitForExistence(timeout: 2))
     XCTAssertFalse(app.cells["feedCell"].staticTexts["PushEvent"].exists)
   }
-  
+
   func testTapOnFeedCellOpenDetails() {
     app.launch()
     XCTAssert(app.cells["feedCell"].waitForExistence(timeout: 2))
     app.collectionViews.cells["feedCell"].staticTexts["PushEvent"].firstMatch.tap()
     XCTAssert(app.textViews["detailsTextView"].waitForExistence(timeout: 2))
   }
-  
-    func testLaunchPerformance() {
-      if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
-        measure(metrics: [XCTClockMetric(),
-                          XCTStorageMetric(),
-                          XCTMemoryMetric(),
-                          XCTOSSignpostMetric.applicationLaunch]) {
-                            XCUIApplication().launch()
-        }
+
+  func testLaunchPerformance() {
+    if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
+      measure(metrics: [XCTClockMetric(),
+                        XCTStorageMetric(),
+                        XCTMemoryMetric(),
+                        XCTOSSignpostMetric.applicationLaunch]) {
+                          XCUIApplication().launch()
       }
     }
+  }
 }
 
 fileprivate extension XCUIApplication {
   var isLoadingIndicatorVisible: Bool {
-    alerts.activityIndicators["loadingIndicator"].exists || otherElements["refreshControl"].exists
+    alerts.activityIndicators["loadingIndicator"].waitForExistence(timeout: 1) || otherElements["refreshControl"].waitForExistence(timeout: 1)
   }
   
   func searchBar(_ identifier: String) -> XCUIElement {

@@ -61,6 +61,13 @@ public extension Routable {
   func register(path: String, with destinationFactory: @escaping DestinationFactoryMethod) {
     destinations[path] = destinationFactory
   }
+
+  @discardableResult func open(url: URL) throws -> Routable {
+    // Important: `dropFirst` is added to ommit `/` because `self` is already opened.
+    return try url.pathComponents.dropFirst().reduce(self) { (router: Routable, component) -> Routable in
+      try router.go(to: component, parameters: url.queryParameters, animated: false)
+    }
+  }
 }
 
 // MARK: Helpers for managing children controllers
@@ -95,5 +102,17 @@ private extension UIView {
     bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: 0).isActive = true
     leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: 0).isActive = true
     trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: 0).isActive = true
+  }
+}
+
+// MARK: URL extensions
+private extension URL {
+  var queryParameters: [String: String]? {
+    guard
+      let components = URLComponents(url: self, resolvingAgainstBaseURL: true),
+      let queryItems = components.queryItems else { return nil }
+    return queryItems.reduce(into: [String: String]()) { result, item in
+      result[item.name] = item.value
+    }
   }
 }

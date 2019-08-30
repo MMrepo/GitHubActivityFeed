@@ -19,6 +19,9 @@
 		C20736B02317E3BC002FE570 /* CorruptedEvents.json in Resources */ = {isa = PBXBuildFile; fileRef = C20736AF2317E3BB002FE570 /* CorruptedEvents.json */; };
 		C20736B323180361002FE570 /* ParameterParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20736B223180361002FE570 /* ParameterParser.swift */; };
 		C20736B52318037F002FE570 /* FeedsListParameterParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20736B42318037F002FE570 /* FeedsListParameterParser.swift */; };
+		C20736C72318149E002FE570 /* GitHubActivityFeedSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20736C62318149E002FE570 /* GitHubActivityFeedSnapshotTests.swift */; };
+		C20736CE231814A4002FE570 /* SnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20736B9231804AB002FE570 /* SnapshotTests.swift */; };
+		C22A695923191146007E5DF8 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = C22A695823191146007E5DF8 /* SnapshotTesting */; };
 		C242EA3D23152FF400E17B27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA3C23152FF400E17B27 /* AppDelegate.swift */; };
 		C242EA3F23152FF400E17B27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA3E23152FF400E17B27 /* SceneDelegate.swift */; };
 		C242EA4623152FF600E17B27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C242EA4523152FF600E17B27 /* Assets.xcassets */; };
@@ -52,6 +55,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C20736C92318149E002FE570 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C242EA3123152FF300E17B27 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C242EA3823152FF400E17B27;
+			remoteInfo = GitHubActivityFeed;
+		};
 		C242EA5023152FF600E17B27 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C242EA3123152FF300E17B27 /* Project object */;
@@ -83,6 +93,10 @@
 		C20736AF2317E3BB002FE570 /* CorruptedEvents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CorruptedEvents.json; sourceTree = "<group>"; };
 		C20736B223180361002FE570 /* ParameterParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterParser.swift; sourceTree = "<group>"; };
 		C20736B42318037F002FE570 /* FeedsListParameterParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsListParameterParser.swift; sourceTree = "<group>"; };
+		C20736B9231804AB002FE570 /* SnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotTests.swift; sourceTree = "<group>"; };
+		C20736C42318149E002FE570 /* GitHubActivityFeedSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHubActivityFeedSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C20736C62318149E002FE570 /* GitHubActivityFeedSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubActivityFeedSnapshotTests.swift; sourceTree = "<group>"; };
+		C20736C82318149E002FE570 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C242EA3923152FF400E17B27 /* GitHubActivityFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubActivityFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C242EA3C23152FF400E17B27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C242EA3E23152FF400E17B27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,9 +129,18 @@
 		C242EAB52315671100E17B27 /* GithubFeedsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubFeedsProvider.swift; sourceTree = "<group>"; };
 		C242EAB72315678E00E17B27 /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
 		C242EABD2315701E00E17B27 /* MockedEvents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockedEvents.json; sourceTree = "<group>"; };
+		C2887E51231849A700CF7E4E /* GitHubActivityFeedSnapshotTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = GitHubActivityFeedSnapshotTests.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C20736C12318149E002FE570 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C22A695923191146007E5DF8 /* SnapshotTesting in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C242EA3623152FF400E17B27 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -192,6 +215,16 @@
 			path = ParametersParser;
 			sourceTree = "<group>";
 		};
+		C20736C52318149E002FE570 /* GitHubActivityFeedSnapshotTests */ = {
+			isa = PBXGroup;
+			children = (
+				C20736B9231804AB002FE570 /* SnapshotTests.swift */,
+				C20736C62318149E002FE570 /* GitHubActivityFeedSnapshotTests.swift */,
+				C20736C82318149E002FE570 /* Info.plist */,
+			);
+			path = GitHubActivityFeedSnapshotTests;
+			sourceTree = "<group>";
+		};
 		C242EA3023152FF300E17B27 = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +234,7 @@
 				C242EA3B23152FF400E17B27 /* GitHubActivityFeed */,
 				C242EA5223152FF600E17B27 /* GitHubActivityFeedTests */,
 				C242EA5D23152FF600E17B27 /* GitHubActivityFeedUITests */,
+				C20736C52318149E002FE570 /* GitHubActivityFeedSnapshotTests */,
 				C242EA3A23152FF400E17B27 /* Products */,
 				C242EA6E2315314600E17B27 /* Frameworks */,
 			);
@@ -212,6 +246,7 @@
 				C242EA3923152FF400E17B27 /* GitHubActivityFeed.app */,
 				C242EA4F23152FF600E17B27 /* GitHubActivityFeedTests.xctest */,
 				C242EA5A23152FF600E17B27 /* GitHubActivityFeedUITests.xctest */,
+				C20736C42318149E002FE570 /* GitHubActivityFeedSnapshotTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -226,6 +261,7 @@
 				C242EA73231531B300E17B27 /* Application */,
 				C242EA3C23152FF400E17B27 /* AppDelegate.swift */,
 				C242EA3E23152FF400E17B27 /* SceneDelegate.swift */,
+				C2887E51231849A700CF7E4E /* GitHubActivityFeedSnapshotTests.xctestplan */,
 				C242EA4523152FF600E17B27 /* Assets.xcassets */,
 				C242EA4723152FF600E17B27 /* LaunchScreen.storyboard */,
 				C242EA4A23152FF600E17B27 /* Info.plist */,
@@ -353,6 +389,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C20736C32318149E002FE570 /* GitHubActivityFeedSnapshotTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C20736CB2318149E002FE570 /* Build configuration list for PBXNativeTarget "GitHubActivityFeedSnapshotTests" */;
+			buildPhases = (
+				C20736C02318149E002FE570 /* Sources */,
+				C20736C12318149E002FE570 /* Frameworks */,
+				C20736C22318149E002FE570 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C20736CA2318149E002FE570 /* PBXTargetDependency */,
+			);
+			name = GitHubActivityFeedSnapshotTests;
+			packageProductDependencies = (
+				C22A695823191146007E5DF8 /* SnapshotTesting */,
+			);
+			productName = GitHubActivityFeedSnapshotTests;
+			productReference = C20736C42318149E002FE570 /* GitHubActivityFeedSnapshotTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C242EA3823152FF400E17B27 /* GitHubActivityFeed */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C242EA6323152FF600E17B27 /* Build configuration list for PBXNativeTarget "GitHubActivityFeed" */;
@@ -392,6 +449,8 @@
 				C242EA5123152FF600E17B27 /* PBXTargetDependency */,
 			);
 			name = GitHubActivityFeedTests;
+			packageProductDependencies = (
+			);
 			productName = GitHubActivityFeedTests;
 			productReference = C242EA4F23152FF600E17B27 /* GitHubActivityFeedTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -424,6 +483,10 @@
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Mateusz Małek";
 				TargetAttributes = {
+					C20736C32318149E002FE570 = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = C242EA3823152FF400E17B27;
+					};
 					C242EA3823152FF400E17B27 = {
 						CreatedOnToolsVersion = 11.0;
 					};
@@ -449,6 +512,7 @@
 			packageReferences = (
 				C242EA8F2315346300E17B27 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				C242EAB923156B0500E17B27 /* XCRemoteSwiftPackageReference "Codextended" */,
+				C22A695523191137007E5DF8 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 			);
 			productRefGroup = C242EA3A23152FF400E17B27 /* Products */;
 			projectDirPath = "";
@@ -457,11 +521,19 @@
 				C242EA3823152FF400E17B27 /* GitHubActivityFeed */,
 				C242EA4E23152FF600E17B27 /* GitHubActivityFeedTests */,
 				C242EA5923152FF600E17B27 /* GitHubActivityFeedUITests */,
+				C20736C32318149E002FE570 /* GitHubActivityFeedSnapshotTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C20736C22318149E002FE570 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C242EA3723152FF400E17B27 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -531,6 +603,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C20736C02318149E002FE570 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C20736C72318149E002FE570 /* GitHubActivityFeedSnapshotTests.swift in Sources */,
+				C20736CE231814A4002FE570 /* SnapshotTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C242EA3523152FF400E17B27 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -587,6 +668,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C20736CA2318149E002FE570 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = C242EA3823152FF400E17B27 /* GitHubActivityFeed */;
+			targetProxy = C20736C92318149E002FE570 /* PBXContainerItemProxy */;
+		};
 		C242EA5123152FF600E17B27 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C242EA3823152FF400E17B27 /* GitHubActivityFeed */;
@@ -611,6 +698,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C20736CC2318149E002FE570 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B7YMYXCSWP;
+				INFOPLIST_FILE = GitHubActivityFeedSnapshotTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vindur..GitHubActivityFeedSnapshotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GitHubActivityFeed.app/GitHubActivityFeed";
+			};
+			name = Debug;
+		};
+		C20736CD2318149E002FE570 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B7YMYXCSWP;
+				INFOPLIST_FILE = GitHubActivityFeedSnapshotTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vindur..GitHubActivityFeedSnapshotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GitHubActivityFeed.app/GitHubActivityFeed";
+			};
+			name = Release;
+		};
 		C242EA6123152FF600E17B27 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -732,6 +859,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B7YMYXCSWP;
 				INFOPLIST_FILE = GitHubActivityFeed/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -750,6 +878,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B7YMYXCSWP;
 				INFOPLIST_FILE = GitHubActivityFeed/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -848,6 +977,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C20736CB2318149E002FE570 /* Build configuration list for PBXNativeTarget "GitHubActivityFeedSnapshotTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C20736CC2318149E002FE570 /* Debug */,
+				C20736CD2318149E002FE570 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C242EA3423152FF300E17B27 /* Build configuration list for PBXProject "GitHubActivityFeed" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -887,6 +1025,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C22A695523191137007E5DF8 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		C242EA8F2315346300E17B27 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -906,6 +1052,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C22A695823191146007E5DF8 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C22A695523191137007E5DF8 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
 		C242EA6F2315314600E17B27 /* Architecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Architecture;

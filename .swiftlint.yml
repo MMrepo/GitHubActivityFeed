@@ -1,5 +1,6 @@
 excluded:
   - GitHubActivityFeedTests
+  - GitHubActivityFeedSnapshotTests
   - GitHubActivityFeedUITests
   - Resources
   - Routable/Tests

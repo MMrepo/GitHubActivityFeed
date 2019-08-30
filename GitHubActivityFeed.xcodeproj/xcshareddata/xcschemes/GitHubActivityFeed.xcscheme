@@ -40,12 +40,22 @@
             </BuildableReference>
          </TestableReference>
          <TestableReference
-            skipped = "NO">
+            skipped = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C242EA4E23152FF600E17B27"
                BuildableName = "GitHubActivityFeedTests.xctest"
                BlueprintName = "GitHubActivityFeedTests"
+               ReferencedContainer = "container:GitHubActivityFeed.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C20736C32318149E002FE570"
+               BuildableName = "GitHubActivityFeedSnapshotTests.xctest"
+               BlueprintName = "GitHubActivityFeedSnapshotTests"
                ReferencedContainer = "container:GitHubActivityFeed.xcodeproj">
             </BuildableReference>
          </TestableReference>

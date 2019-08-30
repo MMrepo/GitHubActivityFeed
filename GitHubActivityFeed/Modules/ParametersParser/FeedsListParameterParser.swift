@@ -20,12 +20,30 @@ struct FeedsListParameterParser: ParameterParser {
 
     // For now parser will only support undefined error with string
     if let errorString = parameters?["error"] as? String { parsed?["error"] = FeedsProviderError.undefined(errorString) }
-    if let snapshotString = parameters?["snapshot"] as? String, let feeds: [Feed] = try? snapshotString.removingPercentEncoding?.data(using: .utf8)?.decoded() {
+    if let snapshotString = parameters?["snapshot"] as? String,
+      let feeds: [Feed] = try? snapshotString.removingPercentEncoding?.data(using: .utf8)?.decoded() {
       let snapshot = NSDiffableDataSourceSnapshot<FeedsListMainView.FeedListSection, Feed>()
       snapshot.appendSections([.main])
       snapshot.appendItems(feeds)
       parsed?["snapshot"] = snapshot
     }
+    if let withAnimationsString = parameters?["withAnimations"] as? String,
+      let withAnimations = withAnimationsString.bool {
+      parsed?["withAnimations"] = withAnimations
+    }
     return parsed
+  }
+}
+
+private extension String {
+  var bool: Bool? {
+    switch lowercased() {
+    case "true", "t", "yes", "y", "1":
+      return true
+    case "false", "f", "no", "n", "0":
+      return false
+    default:
+      return nil
+    }
   }
 }

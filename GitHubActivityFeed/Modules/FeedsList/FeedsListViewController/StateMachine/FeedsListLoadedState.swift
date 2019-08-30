@@ -10,20 +10,23 @@ import GameplayKit
 import UIKit
 
 class FeedsListLoadedState: GKState {
+  private var withAnimations: Bool
   private weak var dataSource: UICollectionViewDiffableDataSource<FeedsListMainView.FeedListSection, Feed>!
   var lastDownloadedSnapshot: NSDiffableDataSourceSnapshot<FeedsListMainView.FeedListSection, Feed>?
 
   override func didEnter(from previousState: GKState?) {
     guard let snapshot = lastDownloadedSnapshot else { return } // It would be good to add some error handling here
-    dataSource.apply(snapshot, animatingDifferences: true)
+    dataSource.apply(snapshot, animatingDifferences: withAnimations)
   }
 
   override func isValidNextState(_ stateClass: AnyClass) -> Bool {
     return stateClass == FeedsListLoadingState.self || stateClass == FeedsListFilterState.self
   }
 
-  init(dataSource: UICollectionViewDiffableDataSource<FeedsListMainView.FeedListSection, Feed>) {
+  init(dataSource: UICollectionViewDiffableDataSource<FeedsListMainView.FeedListSection, Feed>,
+       withAnimations: Bool) {
     self.dataSource = dataSource
+    self.withAnimations = withAnimations
     super.init()
   }
 }

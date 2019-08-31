@@ -22,7 +22,7 @@ struct FeedsListParameterParser: ParameterParser {
     if let errorString = parameters?["error"] as? String { parsed?["error"] = FeedsProviderError.undefined(errorString) }
     if let snapshotString = parameters?["snapshot"] as? String,
       let feeds: [Feed] = try? snapshotString.removingPercentEncoding?.data(using: .utf8)?.decoded() {
-      let snapshot = NSDiffableDataSourceSnapshot<FeedsListMainView.FeedListSection, Feed>()
+      var snapshot = NSDiffableDataSourceSnapshot<FeedsListMainView.FeedListSection, Feed>()
       snapshot.appendSections([.main])
       snapshot.appendItems(feeds)
       parsed?["snapshot"] = snapshot

@@ -42,6 +42,7 @@ class FeedsListViewController: GenericViewController<FeedsListMainView>, Pathabl
     self.dataSource = configureDataSource(with: mainView.feedsCollectionView)
     let initialState = FeedsListInitialState(viewController: self)
     let loadedState = FeedsListLoadedState(dataSource: dataSource,
+                                           mainView: mainView,
                                            withAnimations: withAnimations)
     let filteredState = FeedsListFilterState(dataSource: dataSource,
                                              withAnimations: withAnimations)
@@ -81,7 +82,7 @@ extension FeedsListViewController {
           self.stateMachine.enterFailedLoadingState(with: error)
         }
       }, receiveValue: { feeds in
-        let snapshot = self.makeSnapshot()
+        var snapshot = self.makeSnapshot()
         snapshot.appendItems(feeds)
 
         if let oldItems = self.stateMachine.lastLoadedSnapshot?.itemIdentifiers {
@@ -135,7 +136,7 @@ private extension FeedsListViewController {
   }
 
   func makeSnapshot() -> NSDiffableDataSourceSnapshot<FeedsListMainView.FeedListSection, Feed> {
-    let snapshot = NSDiffableDataSourceSnapshot<FeedsListMainView.FeedListSection, Feed>()
+    var snapshot = NSDiffableDataSourceSnapshot<FeedsListMainView.FeedListSection, Feed>()
     snapshot.appendSections([.main])
     return snapshot
   }
@@ -182,7 +183,7 @@ extension FeedsListViewController: UISearchBarDelegate {
           self.stateMachine.enterFailedLoadingState(with: error)
         }
       }, receiveValue: { feeds in
-        let snapshot = self.makeSnapshot()
+        var snapshot = self.makeSnapshot()
         snapshot.appendItems(feeds)
         self.stateMachine.enterFilterState(with: snapshot)
       })

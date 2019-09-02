@@ -26,8 +26,6 @@
 		C242EA4623152FF600E17B27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C242EA4523152FF600E17B27 /* Assets.xcassets */; };
 		C242EA4923152FF600E17B27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C242EA4723152FF600E17B27 /* LaunchScreen.storyboard */; };
 		C242EA5F23152FF600E17B27 /* GitHubActivityFeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA5E23152FF600E17B27 /* GitHubActivityFeedUITests.swift */; };
-		C242EA702315314600E17B27 /* Architecture in Frameworks */ = {isa = PBXBuildFile; productRef = C242EA6F2315314600E17B27 /* Architecture */; };
-		C242EA722315314900E17B27 /* Routable in Frameworks */ = {isa = PBXBuildFile; productRef = C242EA712315314900E17B27 /* Routable */; };
 		C242EA75231531C600E17B27 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA74231531C600E17B27 /* Application.swift */; };
 		C242EA77231531D100E17B27 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA76231531D100E17B27 /* DependencyContainer.swift */; };
 		C242EA892315341E00E17B27 /* FeedsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EA812315341E00E17B27 /* FeedsListViewController.swift */; };
@@ -51,6 +49,8 @@
 		C242EAB82315678E00E17B27 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242EAB72315678E00E17B27 /* Identifier.swift */; };
 		C242EABB23156B0500E17B27 /* Codextended in Frameworks */ = {isa = PBXBuildFile; productRef = C242EABA23156B0500E17B27 /* Codextended */; };
 		C242EABE2315701E00E17B27 /* MockedEvents.json in Resources */ = {isa = PBXBuildFile; fileRef = C242EABD2315701E00E17B27 /* MockedEvents.json */; };
+		C2F084ED231D90F7005E5538 /* Architecture in Frameworks */ = {isa = PBXBuildFile; productRef = C2F084EC231D90F7005E5538 /* Architecture */; };
+		C2F084F0231D9109005E5538 /* Routable in Frameworks */ = {isa = PBXBuildFile; productRef = C2F084EF231D9109005E5538 /* Routable */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,8 +126,6 @@
 		C242EAB72315678E00E17B27 /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
 		C242EABD2315701E00E17B27 /* MockedEvents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockedEvents.json; sourceTree = "<group>"; };
 		C2887E51231849A700CF7E4E /* GitHubActivityFeedSnapshotTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = GitHubActivityFeedSnapshotTests.xctestplan; sourceTree = "<group>"; };
-		C290505B231927E300DCE3C7 /* Routable */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Routable; sourceTree = "<group>"; };
-		C290505C231927E300DCE3C7 /* Architecture */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Architecture; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,10 +141,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2F084ED231D90F7005E5538 /* Architecture in Frameworks */,
 				C242EA912315346300E17B27 /* SnapKit in Frameworks */,
-				C242EA722315314900E17B27 /* Routable in Frameworks */,
+				C2F084F0231D9109005E5538 /* Routable in Frameworks */,
 				C242EABB23156B0500E17B27 /* Codextended in Frameworks */,
-				C242EA702315314600E17B27 /* Architecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,8 +223,6 @@
 		C242EA3023152FF300E17B27 = {
 			isa = PBXGroup;
 			children = (
-				C290505C231927E300DCE3C7 /* Architecture */,
-				C290505B231927E300DCE3C7 /* Routable */,
 				C242EABC23156FF000E17B27 /* Resources */,
 				C242EA3B23152FF400E17B27 /* GitHubActivityFeed */,
 				C242EA5223152FF600E17B27 /* GitHubActivityFeedTests */,
@@ -423,10 +419,10 @@
 			);
 			name = GitHubActivityFeed;
 			packageProductDependencies = (
-				C242EA6F2315314600E17B27 /* Architecture */,
-				C242EA712315314900E17B27 /* Routable */,
 				C242EA902315346300E17B27 /* SnapKit */,
 				C242EABA23156B0500E17B27 /* Codextended */,
+				C2F084EC231D90F7005E5538 /* Architecture */,
+				C2F084EF231D9109005E5538 /* Routable */,
 			);
 			productName = GitHubActivityFeed;
 			productReference = C242EA3923152FF400E17B27 /* GitHubActivityFeed.app */;
@@ -510,6 +506,8 @@
 				C242EA8F2315346300E17B27 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				C242EAB923156B0500E17B27 /* XCRemoteSwiftPackageReference "Codextended" */,
 				C22A695523191137007E5DF8 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+				C2F084EB231D90F7005E5538 /* XCRemoteSwiftPackageReference "Architecture" */,
+				C2F084EE231D9109005E5538 /* XCRemoteSwiftPackageReference "Routable" */,
 			);
 			productRefGroup = C242EA3A23152FF400E17B27 /* Products */;
 			projectDirPath = "";
@@ -1045,6 +1043,22 @@
 				minimumVersion = 0.3.0;
 			};
 		};
+		C2F084EB231D90F7005E5538 /* XCRemoteSwiftPackageReference "Architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MMrepo/Architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+		C2F084EE231D9109005E5538 /* XCRemoteSwiftPackageReference "Routable" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MMrepo/Routable";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1052,14 +1066,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C22A695523191137007E5DF8 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
 			productName = SnapshotTesting;
-		};
-		C242EA6F2315314600E17B27 /* Architecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Architecture;
-		};
-		C242EA712315314900E17B27 /* Routable */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Routable;
 		};
 		C242EA902315346300E17B27 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1070,6 +1076,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C242EAB923156B0500E17B27 /* XCRemoteSwiftPackageReference "Codextended" */;
 			productName = Codextended;
+		};
+		C2F084EC231D90F7005E5538 /* Architecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C2F084EB231D90F7005E5538 /* XCRemoteSwiftPackageReference "Architecture" */;
+			productName = Architecture;
+		};
+		C2F084EF231D9109005E5538 /* Routable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C2F084EE231D9109005E5538 /* XCRemoteSwiftPackageReference "Routable" */;
+			productName = Routable;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

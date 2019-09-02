@@ -2,12 +2,30 @@
   "object": {
     "pins": [
       {
+        "package": "Architecture",
+        "repositoryURL": "https://github.com/MMrepo/Architecture",
+        "state": {
+          "branch": null,
+          "revision": "2a53b49348f62616d24862be6450057af60a0e3d",
+          "version": "0.1.0"
+        }
+      },
+      {
         "package": "Codextended",
         "repositoryURL": "https://github.com/JohnSundell/Codextended",
         "state": {
           "branch": null,
           "revision": "8d7c46dfc9c55240870cf5561d6cefa41e3d7105",
           "version": "0.3.0"
+        }
+      },
+      {
+        "package": "Routable",
+        "repositoryURL": "https://github.com/MMrepo/Routable",
+        "state": {
+          "branch": null,
+          "revision": "b62f697ee2ca2719bda5fa2174bbe67cfebb4a01",
+          "version": "0.1.0"
         }
       },
       {
